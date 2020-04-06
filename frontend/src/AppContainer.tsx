@@ -3,7 +3,7 @@
 */
 
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom';
 
 import Home from './screens/Home';
 import Me from './screens/Me';
@@ -34,8 +34,11 @@ const AppContainer = () => {
           <Route path="/cv">
             <CV />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="*">
+            <Redirect to="/" />
           </Route>
         </Switch>
 
