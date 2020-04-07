@@ -1,11 +1,17 @@
 import React from 'react';
+
 import AppContainer from './AppContainer';
+import Navbar from './components/Navbar';
 
-
-const App = () => {
-  return (
-    <AppContainer />
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <AppContainer />
+      </div>
+    );
+  }
 }
 
 export default App;
