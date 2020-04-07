@@ -7,9 +7,8 @@ import NavbarButton from './NavbarButton';
 import Home from '../screens/Home';
 import CV from '../screens/CV';
 import Me from '../screens/Me';
+import {MIN_WIDTH} from '../assets/constants';
 
-
-const minWidth = 560;
 
 class Navbar extends React.Component {
   state = {toggle: false, width: window.innerWidth-15};
@@ -41,7 +40,7 @@ class Navbar extends React.Component {
   }
 
   renderHamburgerButton = () => {
-    if (this.state.width <= minWidth) {
+    if (this.state.width <= MIN_WIDTH) {
       return (
         <Col className='HamburgerMenuButton' xs={1} sm={1} md={1} lg={1} style={styles.hamburgerColumnStyle}>
           <button className='HamburgerButton' onClick={this.toggleMenu}>
@@ -53,6 +52,39 @@ class Navbar extends React.Component {
     return null;
   }
 
+  renderMenuElements = () => {
+    if (this.state.width <= MIN_WIDTH) {
+      return (
+        <Col>
+          {
+            this.routes.map((route, i) => {
+              return (
+                <NavbarButton
+                  key={i}
+                  path={route.path}
+                  name={route.name}
+                  width={this.state.width}
+                />
+              );
+            })
+          }
+        </Col>
+      );
+    }
+    return (
+      this.routes.map((route, i) => {
+        return (
+          <NavbarButton
+            key={i}
+            path={route.path}
+            name={route.name}
+            width={this.state.width}
+          />
+        );
+      })
+    );
+  }
+
   render() {
     return (
       <div className="Navbar">
@@ -60,16 +92,8 @@ class Navbar extends React.Component {
           <Container fluid style={styles.containerStyle}>
             <Row justify="end" align="center" style={styles.rowStyle}>
               {this.renderHamburgerButton()}
-              {this.state.toggle || this.state.width > minWidth?
-                this.routes.map((route, i) => {
-                  return (
-                    <NavbarButton
-                      key={i}
-                      path={route.path}
-                      name={route.name}
-                    />
-                  );
-                }) : null
+              {this.state.toggle || this.state.width > MIN_WIDTH ?
+                this.renderMenuElements() : null
               }
             </Row>
           </Container>
