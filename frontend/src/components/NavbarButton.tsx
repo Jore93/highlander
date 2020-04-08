@@ -15,7 +15,7 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     const {path, name, width} = this.props;
     if (width > MIN_WIDTH) {
       return (
-        <Col className={`${name}NavBarButton`} sm={1} md={1} lg={1} style={styles.navButtonStyle}>
+        <Col className={`${name}NavBarButton`} xs={1} sm={1} md={1} lg={1} style={styles.navButtonStyle}>
           <a href={path}>{name}</a>
         </Col>
       );

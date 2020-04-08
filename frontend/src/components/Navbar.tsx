@@ -39,24 +39,16 @@ class Navbar extends React.Component {
     this.setState({width: w});
   }
 
-  renderHamburgerButton = () => {
-    if (this.state.width <= MIN_WIDTH) {
-      return (
-        <Col className='HamburgerMenuButton' xs={1} sm={1} md={1} lg={1} style={styles.hamburgerColumnStyle}>
-          <button className='HamburgerButton' onClick={this.toggleMenu}>
-            <FaBars style={styles.hamburgerStyle} size={25}/>
-          </button>
-        </Col>
-      );
-    }
-    return null;
-  }
-
   renderMenuElements = () => {
     if (this.state.width <= MIN_WIDTH) {
       return (
-        <Col>
-          {
+        <Col xs= {1} sm={1} md={1} lg={1}>
+          <Row className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
+            <button className='HamburgerButton' onClick={this.toggleMenu}>
+              <FaBars style={styles.hamburgerStyle} size={25}/>
+            </button>
+          </Row>
+          { this.state.toggle ?
             this.routes.map((route, i) => {
               return (
                 <NavbarButton
@@ -66,7 +58,7 @@ class Navbar extends React.Component {
                   width={this.state.width}
                 />
               );
-            })
+            }) : null
           }
         </Col>
       );
@@ -90,11 +82,8 @@ class Navbar extends React.Component {
       <div className="Navbar">
         <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} >
           <Container fluid style={styles.containerStyle}>
-            <Row justify="end" align="center" style={styles.rowStyle}>
-              {this.renderHamburgerButton()}
-              {this.state.toggle || this.state.width > MIN_WIDTH ?
-                this.renderMenuElements() : null
-              }
+            <Row justify={this.state.width < MIN_WIDTH ? "center" : "end"} align="center" style={styles.rowStyle}>
+              {this.renderMenuElements()}
             </Row>
           </Container>
         </ReactResizeDetector>
@@ -108,6 +97,7 @@ export default Navbar;
 const styles = {
   containerStyle: {
     backgroundColor: '#282c34',
+    justifyContent: 'center',
   },
   rowStyle: {
     height: 50,
