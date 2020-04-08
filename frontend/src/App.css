@@ -40,6 +40,7 @@
 .Navbar {
   top: 0;
   position: sticky;
+  z-index: 10;
 }
 
 a {
@@ -52,7 +53,7 @@ a {
 }
 
 .HamburgerButton {
-  background-color: #282c34;
+  background-color: #000;
   border: none;
 }
 

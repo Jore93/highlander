@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react';
+import React from 'react';
 import {Col, Row} from 'react-grid-system';
 
 import '../App.css';
@@ -15,15 +15,18 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     const {path, name, width} = this.props;
     if (width > MIN_WIDTH) {
       return (
-        <Col className={`${name}NavBarButton`} xs={1} sm={1} md={1} lg={1} style={styles.navButtonStyle}>
+        <Col className={`${name}NavBarButton`} xs={1} sm={1} md={1} lg={1} xl={1} style={styles.navButtonStyle}>
           <a href={path}>{name}</a>
         </Col>
       );
     }
     return (
-      <Row className={`${name}NavBarButton`}>
-        <a href={path}>{name}</a>
-      </Row>
+      <div className="navBarRow">
+        <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
+          <a href={path}>{name}</a>
+        </Row>
+        <Row style={styles.borderStyle}/>
+      </div>
     )
   }
 }
@@ -32,7 +35,16 @@ export default NavbarButton;
 
 const styles = {
   navButtonStyle: {
-    underline: 'none',
     flex: 1,
+    underline: 'none',
   },
+  rowStyle: {
+    flex: 1,
+    height: 40,
+    backgroundColor: '#191920',
+  },
+  borderStyle: {
+    height: 1,
+    backgroundColor: "#61dafb"
+  }
 }

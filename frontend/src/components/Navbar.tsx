@@ -42,8 +42,8 @@ class Navbar extends React.Component {
   renderMenuElements = () => {
     if (this.state.width <= MIN_WIDTH) {
       return (
-        <Col xs= {1} sm={1} md={1} lg={1}>
-          <Row className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
+        <Col xs= {12} sm={12} md={12} lg={12} xl={12} style={styles.columnStyle}>
+          <Row justify="center" align="center" className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
             <button className='HamburgerButton' onClick={this.toggleMenu}>
               <FaBars style={styles.hamburgerStyle} size={25}/>
             </button>
@@ -99,12 +99,17 @@ const styles = {
     backgroundColor: '#282c34',
     justifyContent: 'center',
   },
+  columnStyle: {
+    flex: 1,
+  },
   rowStyle: {
     height: 50,
+    backgroundColor: '#000',
   },
   hamburgerColumnStyle: {
     backgroundColor: 'invisible',
-    marginRight: 25,
+    flex: 1,
+    height: 50,
   },
   hamburgerStyle: {
     color: '#61dafb',
