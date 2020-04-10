@@ -48,7 +48,7 @@ class Navbar extends React.Component {
   renderMenuElements = () => {
     if (this.state.width <= MIN_WIDTH) {
       return (
-        <Col xs= {12} sm={12} md={12} lg={12} xl={12} style={styles.columnStyle}>
+        <Col sm={12} md={12} lg={12} style={styles.columnStyle}>
           <Row justify="center" align="center" className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
             <button className='HamburgerButton' onClick={this.toggleMenu}>
               <FaBars style={styles.hamburgerStyle} size={25}/>

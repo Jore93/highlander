@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row} from 'react-grid-system';
-import {FaGlobe, FaCodeBranch, FaCode, FaUserSecret, FaFileAlt} from 'react-icons/fa';
+import {FaCodeBranch, FaCode, FaUserSecret, FaFileAlt} from 'react-icons/fa';
 
 import Card from '../components/common/Card';
 import '../App.css';
