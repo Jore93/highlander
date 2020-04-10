@@ -1,5 +1,4 @@
 import React from 'react'
-import {Col, Row} from 'react-grid-system';
 import {IconBaseProps} from 'react-icons/';
 
 import "../../App.css";
@@ -25,7 +24,7 @@ class Card extends React.Component<CardInterface, {}> {
         </div>
 
         <div className="cardRow" style={styles.contentRowStyle}>
-          <h2>
+          <h2 style={{textAlign: 'center'}}>
             {this.props.content}
           </h2>
         </div>
@@ -44,8 +43,6 @@ const styles = {
     paddingTop: 20,
     marginTop: 15,
     marginBottom: 15,
-    borderColor: 'blue',
-    borderWidth: 1,
   },
   colStyleHover: {
     backgroundColor: HOVER,
@@ -54,13 +51,11 @@ const styles = {
     paddingTop: 20,
     marginTop: 15,
     marginBottom: 15,
-    borderColor: 'blue',
-    borderWidth: 1,
   },
   iconRowStyle: {
     height: 75,
   },
   contentRowStyle: {
     color: TEXT_COLOR,
-  }
+  },
 }
