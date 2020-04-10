@@ -5,7 +5,7 @@ import {FaHome, FaGlobe} from 'react-icons/fa';
 import Card from '../components/common/Card';
 import logo from '../logo.svg';
 import '../App.css';
-import {DARK_HIGHLIGHT, TEXT_COLOR} from '../assets/constants';
+import {DARK_HIGHLIGHT, TEXT_COLOR, BACKGROUND_COLOR} from '../assets/constants';
 
 const Home = () => {
   return (
@@ -27,12 +27,12 @@ export default Home;
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#282c34'
+    backgroundColor: BACKGROUND_COLOR
   },
   colStyle: {
     backgroundColor: DARK_HIGHLIGHT,
-    maxWidth: 450,
-    minWidth: 450,
+    maxWidth: 400,
+    minWidth: 400,
     marginTop: 15,
     marginBottom: 15,
     borderColor: 'blue',
@@ -42,7 +42,7 @@ const styles = {
     color: TEXT_COLOR,
     backgroundColor: 'invisible',
     flex: 1,
-  }
+  },
 }
 
 /*
