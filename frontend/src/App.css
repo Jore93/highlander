@@ -66,6 +66,12 @@ a {
   height: 100px;
 }
 
+.icon {
+  color: #61dafb;
+  background-color: 'invisible';
+  flex: 1;
+}
+
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');

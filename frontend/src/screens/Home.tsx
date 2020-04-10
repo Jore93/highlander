@@ -1,35 +1,70 @@
 import React from 'react';
 import {Container, Row} from 'react-grid-system';
+import {Link} from 'react-router-dom';
 import {FaCodeBranch, FaCode, FaUserSecret, FaFileAlt} from 'react-icons/fa';
 
 import Card from '../components/common/Card';
 import '../App.css';
 import {TEXT_COLOR, BACKGROUND_COLOR} from '../assets/constants';
-import Button from '../components/common/Button';
 
-const Home = () => {
-  return (
-    <Container className="App-container" style={styles.containerStyle}>
-      <Row align="center" justify="around">
-        <Button
-          component={<Card content="Projects" icon={<FaCodeBranch size={'100%'} style={styles.iconStyle} />} />}
-          link='/projects'
-        />
-        <Button
-          component={<Card content="Tech stack" icon={<FaCode size={'100%'} style={styles.iconStyle} />} />}
-          link='/techstack'
-        />
-        <Button
-          component={<Card content="CV" icon={<FaFileAlt size={'100%'} style={styles.iconStyle} />} />}
-          link='/cv'
-        />
-        <Button
-          component={<Card content="About" icon={<FaUserSecret size={'100%'} style={styles.iconStyle}/>}/>}
-          link='/about'
-        />
-      </Row>
-    </Container>
-  );
+
+class Home extends React.Component {
+  changePage: Function = (newPath: string) => {
+    console.log(newPath);
+  }
+
+  render() {
+    return (
+      <Container className="App-container" style={styles.containerStyle}>
+        <Row align="center" justify="around">
+          <Link to="/projects" className="link">
+            <Card
+              content="Projects"
+              icon={
+                <FaCodeBranch
+                  size={'100%'}
+                  className="icon"
+                />
+              }
+            />
+          </Link>
+          <Link to="/techstack" className="link">
+            <Card
+              content="Tech stack"
+              icon={
+                <FaCode
+                  size={'100%'}
+                  className="icon"
+                />
+              }
+            />
+          </Link>
+          <Link to="/cv" className="link">
+            <Card
+              content="CV"
+              icon={
+                <FaFileAlt
+                  size={'100%'}
+                  className="icon"
+                />
+              }
+            />
+          </Link>
+          <Link to="/about" className="link">
+            <Card
+              content="About"
+              icon={
+                <FaUserSecret
+                  size={'100%'}
+                  className="icon"
+                />
+              }
+            />
+          </Link>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default Home;
@@ -44,4 +79,8 @@ const styles = {
     backgroundColor: 'invisible',
     flex: 1,
   },
+  rowStyle: {
+    marginTop: 15,
+    marginBottom: 15,
+  }
 }

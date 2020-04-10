@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {Col, Row} from 'react-grid-system';
 
 import '../App.css';
@@ -16,14 +17,14 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     if (width > MIN_WIDTH) {
       return (
         <Col className={`${name}NavBarButton`} sm={1} md={1} lg={1} style={styles.navButtonStyle}>
-          <a href={path}>{name}</a>
+          <Link to={path}>{name}</Link>
         </Col>
       );
     }
     return (
       <div className="navBarRow">
         <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
-          <a href={path}>{name}</a>
+          <Link to={path}>{name}</Link>
         </Row>
         <Row style={styles.borderStyle}/>
       </div>

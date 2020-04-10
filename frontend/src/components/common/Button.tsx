@@ -2,16 +2,16 @@ import React from 'react'
 
 interface ButtonProps {
   component: JSX.Element,
-  link: string,
+  onClick: Function,
 }
 
 class Button extends React.Component<ButtonProps, {}> {
   render() {
-    const {component, link} = this.props;
+    const {component, onClick} = this.props;
     return (
-      <a href={link}>
+      <button onClick={() => onClick()} className="reactButton">
         {component}
-      </a>
+      </button>
     )
   }
 }
