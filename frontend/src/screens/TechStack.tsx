@@ -41,7 +41,7 @@ class TechStack extends React.Component {
           }
         </Row>
 
-        <h2>Testing technologies</h2>
+        <h2>Testing and automation technologies</h2>
         <Row className='reactButton' align="center" justify="center" >
           {
             testTechs.map((tech, i) => {
