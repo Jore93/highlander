@@ -1,6 +1,26 @@
 import React from 'react';
-import {FaReact, FaNodeJs, FaJava, FaJedi, FaAws, FaGit, FaDocker, FaDashcube, FaLinux, FaGlobe, FaPython, FaRobot, FaFirefox, FaPhp, FaWindows, FaRaspberryPi} from 'react-icons/fa';
-import {DiVisualstudio, DiScala, DiCode, DiDart, DiPhotoshop, DiMysql} from 'react-icons/di';
+import {
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  FaAws,
+  FaGit,
+  FaDocker,
+  FaLinux,
+  FaPython,
+  FaRobot,
+  FaFirefox,
+  FaPhp,
+  FaWindows,
+  FaRaspberryPi,
+} from 'react-icons/fa';
+import {
+  DiVisualstudio,
+  DiScala,
+  DiDart,
+  DiPhotoshop,
+  DiMysql,
+} from 'react-icons/di';
 import {GiCircuitry} from 'react-icons/gi';
 
 export const frontendTechs = [
