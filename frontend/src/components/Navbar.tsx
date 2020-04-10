@@ -7,7 +7,7 @@ import NavbarButton from './NavbarButton';
 import Home from '../screens/Home';
 import CV from '../screens/CV';
 import Me from '../screens/Me';
-import {MIN_WIDTH} from '../assets/constants';
+import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK} from '../assets/constants';
 
 
 class Navbar extends React.Component {
@@ -96,7 +96,7 @@ export default Navbar;
 
 const styles = {
   containerStyle: {
-    backgroundColor: '#282c34',
+    backgroundColor: BACKGROUND_COLOR,
     justifyContent: 'center',
   },
   columnStyle: {
@@ -104,7 +104,7 @@ const styles = {
   },
   rowStyle: {
     height: 50,
-    backgroundColor: '#000',
+    backgroundColor: BLACK,
   },
   hamburgerColumnStyle: {
     backgroundColor: 'invisible',
@@ -112,6 +112,6 @@ const styles = {
     height: 50,
   },
   hamburgerStyle: {
-    color: '#61dafb',
+    color: TEXT_COLOR,
   },
 }

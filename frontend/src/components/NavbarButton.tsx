@@ -2,7 +2,7 @@ import React from 'react';
 import {Col, Row} from 'react-grid-system';
 
 import '../App.css';
-import {MIN_WIDTH} from '../assets/constants';
+import {MIN_WIDTH, TEXT_COLOR, DARK_HIGHLIGHT} from '../assets/constants';
 
 interface NavbarButtonProps {
   path: string,
@@ -41,10 +41,10 @@ const styles = {
   rowStyle: {
     flex: 1,
     height: 40,
-    backgroundColor: '#191920',
+    backgroundColor: DARK_HIGHLIGHT,
   },
   borderStyle: {
     height: 1,
-    backgroundColor: "#61dafb"
+    backgroundColor: TEXT_COLOR,
   }
 }
