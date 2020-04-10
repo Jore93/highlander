@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row} from 'react-grid-system';
-import {FaGlobe, FaCodeBranch, FaCode, FaUserSecret} from 'react-icons/fa';
+import {FaGlobe, FaCodeBranch, FaCode, FaUserSecret, FaFileAlt} from 'react-icons/fa';
 
 import Card from '../components/common/Card';
 import '../App.css';
@@ -20,7 +20,7 @@ const Home = () => {
           link='/techstack'
         />
         <Button
-          component={<Card content="CV" icon={<FaCode size={'100%'} style={styles.iconStyle} />} />}
+          component={<Card content="CV" icon={<FaFileAlt size={'100%'} style={styles.iconStyle} />} />}
           link='/cv'
         />
         <Button
