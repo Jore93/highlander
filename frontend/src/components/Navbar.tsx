@@ -6,7 +6,8 @@ import {FaBars} from 'react-icons/fa';
 import NavbarButton from './NavbarButton';
 import Home from '../screens/Home';
 import CV from '../screens/CV';
-import Me from '../screens/Me';
+import About from '../screens/About';
+import Projects from '../screens/Projects';
 import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK} from '../assets/constants';
 
 
@@ -20,14 +21,19 @@ class Navbar extends React.Component {
       component: Home,
     },
     {
+      path: "/projects",
+      name: "Projects",
+      component: Projects,
+    },
+    {
       path: "/cv",
       name: "CV",
       component: CV,
     },
     {
-      path: "/me",
-      name: "Me",
-      component: Me,
+      path: "/about",
+      name: "About",
+      component: About,
     },
   ];
 

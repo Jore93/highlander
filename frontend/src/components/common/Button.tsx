@@ -1,16 +1,16 @@
 import React from 'react'
 
 interface ButtonProps {
-  label: string,
+  component: JSX.Element,
   link: string,
 }
 
 class Button extends React.Component<ButtonProps, {}> {
   render() {
-    const {label, link} = this.props;
+    const {component, link} = this.props;
     return (
       <a href={link}>
-        {label}
+        {component}
       </a>
     )
   }
