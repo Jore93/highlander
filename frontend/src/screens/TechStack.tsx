@@ -1,33 +1,57 @@
 import React from 'react';
-import {FaReact, FaNodeJs} from 'react-icons/fa';
-import {Container, Row} from 'react-grid-system';
+import {Container, Col, Row} from 'react-grid-system';
 
 import '../App.css';
 
-import Button from '../components/common/Button';
 import Card from '../components/common/Card';
+import {frontendTechs, backendTechs, cloudTechs} from '../techs';
 
 
 class TechStack extends React.Component {
-  changePage: Function = (page: string) => {
+  openModal: Function = (page: string) => {
     console.log(page);
   }
 
   render() {
     return (
-      <Container>
+      <Container className="App-container" style={styles.containerStyle}>
         <h2>Frontend</h2>
-        <Row>
-          <Button
-            component={
-              <Card content='React' icon={<FaReact size={'100%'} className="icon" />}/>
-            }
-            onClick={this.changePage.bind(this, 'react')}
-          />
+        <Row className='reactButton' align="center" justify="center">
+          {
+            frontendTechs.map((tech, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
+                  <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
         </Row>
+
         <h2>Backend</h2>
-        <Row>
-          <Button component={<Card content='Node.js' icon={<FaNodeJs size={'100%'} className="icon" />}/>} onClick={this.changePage.bind(this, 'node')} />
+        <Row className='reactButton' align="center" justify="center" >
+          {
+            backendTechs.map((tech, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
+                  <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
+        </Row>
+
+        <h3>Cloud techs</h3>
+        <Row className='reactButton' align="center" justify="center" >
+          {
+            cloudTechs.map((tech, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
+                  <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
         </Row>
       </Container>
     );
@@ -36,10 +60,8 @@ class TechStack extends React.Component {
 
 export default TechStack;
 
-// const styles = {
-//   iconStyle: {
-//     color: TEXT_COLOR,
-//     backgroundColor: 'invisible',
-//     flex: 1,
-//   },
-// }
+const styles = {
+  containerStyle: {
+    flex: 1,
+  },
+}

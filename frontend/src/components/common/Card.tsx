@@ -41,16 +41,14 @@ const styles = {
     maxWidth: 400,
     minWidth: 400,
     paddingTop: 20,
-    marginTop: 15,
-    marginBottom: 15,
+    margin: 15,
   },
   colStyleHover: {
     backgroundColor: HOVER,
     maxWidth: 400,
     minWidth: 400,
     paddingTop: 20,
-    marginTop: 15,
-    marginBottom: 15,
+    margin: 15,
   },
   iconRowStyle: {
     height: 75,

@@ -57,6 +57,12 @@ a {
   justify-content: center;
 }
 
+.reactButton {
+  color: #61dafb;
+  font-size: 24px;
+  font-family: typewriter;
+}
+
 .HamburgerButton {
   background-color: #000;
   border: none;
