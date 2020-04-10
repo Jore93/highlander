@@ -1,10 +1,10 @@
 import React from 'react';
-import {Container, Col, Row} from 'react-grid-system';
+import {Container, Row} from 'react-grid-system';
 
 import '../App.css';
 
 import Card from '../components/common/Card';
-import {frontendTechs, backendTechs, cloudTechs} from '../techs';
+import {frontendTechs, backendTechs, platforms, toolStack, testTechs, embeddedTechs} from '../techs';
 
 
 class TechStack extends React.Component {
@@ -41,13 +41,52 @@ class TechStack extends React.Component {
           }
         </Row>
 
-        <h3>Cloud techs</h3>
+        <h2>Testing technologies</h2>
         <Row className='reactButton' align="center" justify="center" >
           {
-            cloudTechs.map((tech, i) => {
+            testTechs.map((tech, i) => {
               return (
                 <div key={i} onClick={this.openModal.bind(this, tech.name)}>
                   <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
+        </Row>
+
+        <h2>Platforms</h2>
+        <Row className='reactButton' align="center" justify="center" >
+          {
+            platforms.map((tech, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
+                  <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
+        </Row>
+
+        <h2>Embedded systems</h2>
+        <Row className='reactButton' align="center" justify="center" >
+          {
+            embeddedTechs.map((tech, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
+                  <Card content={tech.name} icon={tech.icon} />
+                </div>
+              );
+            })
+          }
+        </Row>
+
+        <h2>Tools</h2>
+        <Row className='reactButton' align="center" justify='center' >
+          {
+            toolStack.map((tool, i) => {
+              return (
+                <div key={i} onClick={this.openModal.bind(this, tool.name)}>
+                  <Card content={tool.name} icon={tool.icon} />
                 </div>
               );
             })
