@@ -35,10 +35,6 @@ const techSections = [
 ]
 
 class TechStack extends React.Component {
-  openModal: Function = (title: string) => {
-    console.log(`Open modal for ${title}`);
-  }
-
   render() {
     return (
       <Container className="App-container" >
