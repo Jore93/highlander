@@ -53,6 +53,7 @@ class Navbar extends React.Component {
                   path={route.path}
                   name={route.title}
                   width={this.state.width}
+                  toggleMenu={this.toggleMenu}
                 />
               );
             }) : null
@@ -68,6 +69,7 @@ class Navbar extends React.Component {
             path={route.path}
             name={route.title}
             width={this.state.width}
+            toggleMenu={this.toggleMenu}
           />
         );
       })

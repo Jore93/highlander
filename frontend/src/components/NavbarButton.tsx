@@ -9,6 +9,7 @@ interface NavbarButtonProps {
   path: string,
   name: string,
   width: number,
+  toggleMenu: Function,
 }
 
 class NavbarButton extends React.Component<NavbarButtonProps, {}> {
@@ -24,7 +25,7 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     return (
       <div className="navBarRow">
         <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
-          <Link to={path}>{name}</Link>
+          <Link to={path} onClick={() => this.props.toggleMenu()}>{name}</Link>
         </Row>
         <Row style={styles.borderStyle}/>
       </div>
