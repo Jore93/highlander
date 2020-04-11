@@ -57,6 +57,7 @@ const styles = {
     minWidth: 400,
     paddingTop: 20,
     margin: 15,
+    boxShadow: `0px 0px 15px ${TEXT_COLOR}`,
   },
   iconRowStyle: {
     height: 75,

@@ -90,6 +90,11 @@ a {
 #tech-section {
   margin-top: 50px;
 }
+
+.card:hover {
+  cursor: pointer;
+}
+
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
