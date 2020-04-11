@@ -27,12 +27,12 @@ export const frontendTechs = [
   {
     title: 'Reactjs',
     icon: <FaReact size={'100%'} className='icon' />,
-    content: 'Something about React',
+    content: 'The page you are looking for is made with React.',
   },
   {
-    title: 'React native',
+    title: 'React Native',
     icon: <FaReact size={'100%'} className='icon' />,
-    content: 'Somethin about React Native',
+    content: 'Something about React Native',
   },
   {
     title: 'Dart/Flutter',

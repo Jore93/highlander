@@ -87,6 +87,9 @@ a {
   margin-top: 15px;
 }
 
+#tech-section {
+  margin-top: 50px;
+}
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
