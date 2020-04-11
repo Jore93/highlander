@@ -28,7 +28,7 @@ const CV = () => {
               }
             </ul>
           </Col>
-          <Col sm={12} md={4} lg={4} className='content' style={styles.colStyle}>
+          <Col sm={12} md={4} lg={3} className='content' style={styles.colStyle}>
             <h3>Education</h3>
             <ul>
               {
@@ -66,7 +66,7 @@ const CV = () => {
               }
             </ul>
           </Col>
-          <Col sm={12} md={4} lg={4} className='content-2' style={styles.colStyle}>
+          <Col sm={12} md={4} lg={3} className='content-2' style={styles.colStyle}>
             <h3>Workhistory</h3>
             <ul>
               {
