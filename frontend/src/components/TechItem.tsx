@@ -14,7 +14,6 @@ class TechItem extends React.Component<TechItemInterface, {}> {
   state = {modalIsOpen: false};
 
   openModal: Function = (title: string) => {
-    console.log(`Open modal for ${title}`);
     this.setState({modalIsOpen: !this.state.modalIsOpen});
   }
 

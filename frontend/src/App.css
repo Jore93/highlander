@@ -87,10 +87,6 @@ a {
   margin-top: 15px;
 }
 
-#modal-icon {
-  height: 50px;
-}
-
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
