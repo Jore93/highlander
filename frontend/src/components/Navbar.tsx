@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactResizeDetector from 'react-resize-detector';
 import {Container, Col, Row} from 'react-grid-system';
 import {FaBars, FaHome} from 'react-icons/fa';
 
@@ -9,7 +8,17 @@ import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK} from '../assets/constant
 
 
 class Navbar extends React.Component {
-  state = {toggle: false, width: window.innerWidth-15};
+  state = {
+    toggle: false,
+    width: window.innerWidth - 15,
+  };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateWidth);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWidth);
+  }
 
   routes = [
     {
@@ -23,8 +32,8 @@ class Navbar extends React.Component {
     this.setState({toggle: !this.state.toggle});
   }
 
-  onResize = (w: number, h: number) => {
-    this.setState({width: w});
+  updateWidth = () => {
+    this.setState({width: window.innerWidth});
   }
 
   renderMenuElements = () => {
@@ -66,16 +75,13 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.routes);
     return (
       <div className="Navbar">
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} >
-          <Container fluid style={styles.containerStyle}>
-            <Row justify={this.state.width < MIN_WIDTH ? "center" : "end"} align="center" style={styles.rowStyle}>
-              {this.renderMenuElements()}
-            </Row>
-          </Container>
-        </ReactResizeDetector>
+        <Container fluid style={styles.containerStyle}>
+          <Row justify={this.state.width < MIN_WIDTH ? "center" : "end"} align="center" style={styles.rowStyle}>
+            {this.renderMenuElements()}
+          </Row>
+        </Container>
       </div>
     );
   }
