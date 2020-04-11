@@ -13,23 +13,9 @@ const CV = () => {
   return (
     <div className="App-container">
       <Container fluid style={styles.containerStyle}>
-        <Row justify='center'>
+        <Row align='start' justify='center'>
           <Col sm={12} md={3} lg={3} className='sidebar' style={styles.colStyle}>
-            <h3>Languages</h3>
-            <ul>
-              {
-                languages.map((item, i) => {
-                  return (
-                    <li key={i}>
-                      {item.language} – {item.level}
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </Col>
-          <Col sm={12} md={4} lg={3} className='content' style={styles.colStyle}>
-            <h3>Education</h3>
+          <h2>Education</h2>
             <ul>
               {
                 education.map((item, i) => {
@@ -47,7 +33,21 @@ const CV = () => {
                 })
               }
             </ul>
-            <h3>Positions</h3>
+            <h2>Languages</h2>
+            <ul>
+              {
+                languages.map((item, i) => {
+                  return (
+                    <li key={i}>
+                      {item.language} – {item.level}
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </Col>
+          <Col sm={12} md={4} lg={3} className='content' style={styles.colStyle}>
+            <h2>Positions</h2>
             <ul>
               {
                 positions.map((item, i) => {
@@ -67,7 +67,7 @@ const CV = () => {
             </ul>
           </Col>
           <Col sm={12} md={4} lg={3} className='content-2' style={styles.colStyle}>
-            <h3>Workhistory</h3>
+            <h2>Workhistory</h2>
             <ul>
               {
                 workhistory.map((item, i) => {
@@ -103,4 +103,7 @@ const styles = {
     margin: 15,
     color: TEXT_COLOR,
   },
-}
+  headerStyle: {
+    textAlign: 'start',
+  },
+};
