@@ -1,5 +1,6 @@
 .App-container {
   text-align: center;
+  font-family: typewriter;
 }
 
 .App-logo {
@@ -60,6 +61,15 @@ a {
   font-size: 24px;
   font-family: typewriter;
   justify-content: center;
+}
+
+li {
+  text-align: start;
+  /* list-style: none; */
+}
+
+.cv-item {
+  margin-bottom: 15px;
 }
 
 .reactButton {
