@@ -47,14 +47,12 @@ const styles = {
   colStyle: {
     backgroundColor: DARK_HIGHLIGHT,
     maxWidth: 400,
-    minWidth: 400,
     paddingTop: 20,
     margin: 15,
   },
   colStyleHover: {
     backgroundColor: HOVER,
     maxWidth: 400,
-    minWidth: 400,
     paddingTop: 20,
     margin: 15,
     boxShadow: `0px 0px 15px ${TEXT_COLOR}`,

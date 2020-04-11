@@ -5,4 +5,5 @@ export const DARK_HIGHLIGHT = '#191920';
 export const HOVER = '#2D3343';
 export const BLACK = '#000';
 // SIZES
+export const NAVBAR_HEIGHT = 50;
 export const MIN_WIDTH = 1100;

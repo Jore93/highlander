@@ -23,12 +23,11 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
       );
     }
     return (
-      <div className="navBarRow">
-        <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
-          <Link to={path} onClick={() => this.props.toggleMenu()}>{name}</Link>
-        </Row>
-        <Row style={styles.borderStyle}/>
-      </div>
+      <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
+        <Link to={path} onClick={() => this.props.toggleMenu()}>
+          {name}
+        </Link>
+      </Row>
     )
   }
 }
@@ -42,12 +41,12 @@ const styles = {
     margin: 5,
   },
   rowStyle: {
-    flex: 1,
     height: 40,
     backgroundColor: DARK_HIGHLIGHT,
+    borderBottom: `1px solid ${TEXT_COLOR}`,
   },
   borderStyle: {
     height: 1,
     backgroundColor: TEXT_COLOR,
-  }
+  },
 }

@@ -4,7 +4,7 @@ import {FaBars, FaHome} from 'react-icons/fa';
 
 import NavbarButton from './NavbarButton';
 import {links} from '../links';
-import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK} from '../assets/constants';
+import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK, NAVBAR_HEIGHT} from '../assets/constants';
 
 
 class Navbar extends React.Component {
@@ -39,7 +39,7 @@ class Navbar extends React.Component {
   renderMenuElements = () => {
     if (this.state.width <= MIN_WIDTH) {
       return (
-        <Col sm={12} md={12} lg={12} style={styles.columnStyle}>
+        <Col sm={12} md={12} lg={12}> {/* Column has maximum height on mobile for some reason*/}
           <Row justify="center" align="center" className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
             <button className='HamburgerButton' onClick={this.toggleMenu}>
               <FaBars style={styles.hamburgerStyle} size={25}/>
@@ -96,17 +96,13 @@ const styles = {
     backgroundColor: BACKGROUND_COLOR,
     justifyContent: 'center',
   },
-  columnStyle: {
-    flex: 1,
-  },
   rowStyle: {
-    height: 50,
+    height: NAVBAR_HEIGHT,
     backgroundColor: BLACK,
   },
   hamburgerColumnStyle: {
     backgroundColor: 'invisible',
-    flex: 1,
-    height: 50,
+    height: NAVBAR_HEIGHT,
   },
   hamburgerStyle: {
     color: TEXT_COLOR,
