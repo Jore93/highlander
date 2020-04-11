@@ -83,6 +83,10 @@ a {
   flex: 1;
 }
 
+#home-row {
+  margin-top: 15px;
+}
+
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');

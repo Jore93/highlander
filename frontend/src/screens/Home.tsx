@@ -11,17 +11,17 @@ class Home extends React.Component {
   render() {
     return (
       <Container className="App-container">
-        <Row align="center" justify="around">
-          {
-            links.map((link, i) => {
-              return (
-                <Link key={i} to={link.path} className='link'>
-                  <Card content={link.title} icon={link.icon} />
-                </Link>
-              );
-            })
-          }
-        </Row>
+          <Row align="center" justify="around" id='home-row'>
+            {
+              links.map((link, i) => {
+                return (
+                  <Link key={i} to={link.path} className='link'>
+                    <Card content={link.title} icon={link.icon} />
+                  </Link>
+                );
+              })
+            }
+          </Row>
       </Container>
     );
   }
