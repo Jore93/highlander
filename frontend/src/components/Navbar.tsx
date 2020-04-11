@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import {Container, Col, Row} from 'react-grid-system';
-import {FaBars} from 'react-icons/fa';
+import {FaBars, FaHome} from 'react-icons/fa';
 
 import NavbarButton from './NavbarButton';
-import Home from '../screens/Home';
-import CV from '../screens/CV';
-import About from '../screens/About';
-import Projects from '../screens/Projects';
+import {links} from '../links';
 import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK} from '../assets/constants';
 
 
@@ -17,25 +14,10 @@ class Navbar extends React.Component {
   routes = [
     {
       path: "/",
-      name: "Home",
-      component: Home,
+      title: "Home",
+      icon: <FaHome size={'100%'} className='icon' />,
     },
-    {
-      path: "/projects",
-      name: "Projects",
-      component: Projects,
-    },
-    {
-      path: "/cv",
-      name: "CV",
-      component: CV,
-    },
-    {
-      path: "/about",
-      name: "About",
-      component: About,
-    },
-  ];
+  ].concat(links);
 
   toggleMenu = () => {
     this.setState({toggle: !this.state.toggle});
@@ -60,7 +42,7 @@ class Navbar extends React.Component {
                 <NavbarButton
                   key={i}
                   path={route.path}
-                  name={route.name}
+                  name={route.title}
                   width={this.state.width}
                 />
               );
@@ -75,7 +57,7 @@ class Navbar extends React.Component {
           <NavbarButton
             key={i}
             path={route.path}
-            name={route.name}
+            name={route.title}
             width={this.state.width}
           />
         );
@@ -84,6 +66,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(this.routes);
     return (
       <div className="Navbar">
         <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} >

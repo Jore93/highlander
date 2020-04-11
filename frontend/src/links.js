@@ -9,7 +9,7 @@ export const links = [
   },
   {
     path: "/techstack",
-    title: "Tech stack",
+    title: "Techs",
     icon: <FaCode size={'100%'} className="icon" />,
   },
   {
