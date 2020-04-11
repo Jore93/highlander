@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../App.css';
 import {Container, Col, Row} from 'react-grid-system';
 
@@ -18,13 +17,11 @@ const CV = () => {
                 education.map((item, i) => {
                   return (
                     <div key={i} className='cv-item'>
-                      <li>
-                        <li>{item.name}</li>
-                        <ul>
-                          <li>{item.place}</li>
-                          <li>{item.duration}</li>
-                        </ul>
-                      </li>
+                      <li>{item.name}</li>
+                      <ul>
+                        <li>{item.place}</li>
+                        <li>{item.duration}</li>
+                      </ul>
                     </div>
                   );
                 })
@@ -50,13 +47,11 @@ const CV = () => {
                 positions.map((item, i) => {
                   return (
                     <div key={i} className='cv-item'>
-                      <li>
-                        <li>{item.position}</li>
-                        <ul>
-                          <li>{item.organisation}</li>
-                          <li>{item.duration}</li>
-                        </ul>
-                      </li>
+                      <li>{item.position}</li>
+                      <ul>
+                        <li>{item.organisation}</li>
+                        <li>{item.duration}</li>
+                      </ul>
                     </div>
                   );
                 })
@@ -70,13 +65,11 @@ const CV = () => {
                 workhistory.map((item, i) => {
                   return (
                     <div key={i} className='cv-item'>
-                      <li>
-                        <li>{item.position}</li>
-                        <ul>
-                          <li>{item.employer}</li>
-                          <li>{item.duration}</li>
-                        </ul>
-                      </li>
+                      <li>{item.position}</li>
+                      <ul>
+                        <li>{item.employer}</li>
+                        <li>{item.duration}</li>
+                      </ul>
                     </div>
                   )
                 })
