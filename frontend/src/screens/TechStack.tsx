@@ -5,102 +5,69 @@ import '../App.css';
 
 import Card from '../components/common/Card';
 import {frontendTechs, backendTechs, platforms, toolStack, testTechs, embeddedTechs} from '../techs';
+import {IconBaseProps} from 'react-icons';
+import TechModal from '../components/common/TechModal';
 
+
+const techSections = [
+  {
+    title: 'Frontend',
+    stack: frontendTechs,
+  },
+  {
+    title: 'Backend',
+    stack: backendTechs,
+  },
+  {
+    title: 'Testing and automation technologies',
+    stack: testTechs,
+  },
+  {
+    title: 'Platforms',
+    stack: platforms,
+  },
+  {
+    title: 'Embedded systems',
+    stack: embeddedTechs,
+  },
+  {
+    title: 'Tools',
+    stack: toolStack,
+  },
+]
 
 class TechStack extends React.Component {
-  openModal: Function = (page: string) => {
-    console.log(page);
+  openModal: Function = () => {
+    console.log('open modal');
   }
 
   render() {
     return (
-      <Container className="App-container" style={styles.containerStyle}>
-        <h2>Frontend</h2>
-        <Row className='reactButton' align="center" justify="center">
-          {
-            frontendTechs.map((tech, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
-                  <Card content={tech.name} icon={tech.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
-
-        <h2>Backend</h2>
-        <Row className='reactButton' align="center" justify="center" >
-          {
-            backendTechs.map((tech, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
-                  <Card content={tech.name} icon={tech.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
-
-        <h2>Testing and automation technologies</h2>
-        <Row className='reactButton' align="center" justify="center" >
-          {
-            testTechs.map((tech, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
-                  <Card content={tech.name} icon={tech.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
-
-        <h2>Platforms</h2>
-        <Row className='reactButton' align="center" justify="center" >
-          {
-            platforms.map((tech, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
-                  <Card content={tech.name} icon={tech.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
-
-        <h2>Embedded systems</h2>
-        <Row className='reactButton' align="center" justify="center" >
-          {
-            embeddedTechs.map((tech, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tech.name)}>
-                  <Card content={tech.name} icon={tech.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
-
-        <h2>Tools</h2>
-        <Row className='reactButton' align="center" justify='center' >
-          {
-            toolStack.map((tool, i) => {
-              return (
-                <div key={i} onClick={this.openModal.bind(this, tool.name)}>
-                  <Card content={tool.name} icon={tool.icon} />
-                </div>
-              );
-            })
-          }
-        </Row>
+      <Container className="App-container" >
+        {
+          techSections.map((section, i) => {
+            return (
+              <div id='tech-section'>
+                <h2>{section.title}</h2>
+                <Row key={i} className='reactButton' align='center' justify='center'>
+                  {
+                    section.stack.map((tech, j) => {
+                      return (
+                        <div key={j} onClick={this.openModal.bind(this)} >
+                          <TechModal title={tech.title} content={tech.content} icon={tech.icon} />
+                          <Card content={tech.title} icon={tech.icon} />
+                        </div>
+                      );
+                    })
+                  }
+                </Row>
+              </div>
+            );
+          })
+        }
       </Container>
     );
   }
 }
 
 export default TechStack;
-
-const styles = {
-  containerStyle: {
-    flex: 1,
-  },
-}
