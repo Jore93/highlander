@@ -119,3 +119,6 @@ export const positions = [
     organisation: 'Sähköinsinöörikilta in university of Oulu',
   },
 ]
+
+export const pastParagraph = 'I know stuff. And some more';
+export const futureParagraph = 'I want to become a full-stack developer';

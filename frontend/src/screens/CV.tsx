@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 import {Container, Col, Row} from 'react-grid-system';
 
-import {education, positions, languages, workhistory} from '../allData';
+import {education, positions, languages, workhistory, pastParagraph, futureParagraph} from '../allData';
 import {DARK_HIGHLIGHT, TEXT_COLOR} from '../assets/constants';
 
 const CV = () => {
@@ -88,11 +88,14 @@ const CV = () => {
           <Col sm={9} md={5} lg={5} className='first' style={styles.colStyle}>
             <h2>My areas of expertise</h2>
             <p style={{textAlign: 'start'}}>
-              I know stuff<br />And some more
+              {pastParagraph}
             </p>
           </Col>
           <Col sm={9} md={5} lg={5} className='second' style={styles.colStyle}>
             <h2>My future plans</h2>
+            <p>
+              {futureParagraph}
+            </p>
           </Col>
         </Row>
       </Container>
