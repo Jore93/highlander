@@ -3,10 +3,8 @@ import {Container, Row} from 'react-grid-system';
 
 import '../App.css';
 
-import Card from '../components/common/Card';
 import {frontendTechs, backendTechs, platforms, toolStack, testTechs, embeddedTechs} from '../techs';
-import {IconBaseProps} from 'react-icons';
-import TechModal from '../components/common/TechModal';
+import TechItem from '../components/TechItem';
 
 
 const techSections = [
@@ -37,8 +35,8 @@ const techSections = [
 ]
 
 class TechStack extends React.Component {
-  openModal: Function = () => {
-    console.log('open modal');
+  openModal: Function = (title: string) => {
+    console.log(`Open modal for ${title}`);
   }
 
   render() {
@@ -53,10 +51,7 @@ class TechStack extends React.Component {
                   {
                     section.stack.map((tech, j) => {
                       return (
-                        <div key={j} onClick={this.openModal.bind(this)} >
-                          <TechModal title={tech.title} content={tech.content} icon={tech.icon} />
-                          <Card content={tech.title} icon={tech.icon} />
-                        </div>
+                        <TechItem key={j} title={tech.title} content={tech.content} icon={tech.icon} />
                       );
                     })
                   }
