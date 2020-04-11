@@ -10,6 +10,11 @@ export const education = [
     duration: '08/2013 – 10/2017',
   },
   {
+    name: 'Military service',
+    place: 'Finnish defence forces',
+    duration: '2014',
+  },
+  {
     name: 'Baccalaureate',
     place: 'Kaleva high school, Tampere',
     duration: '08/2009 – 05/2013',

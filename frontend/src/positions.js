@@ -29,4 +29,9 @@ export const positions = [
     duration: '2015-2016',
     organisation: 'Sähköinsinöörikilta in university of Oulu',
   },
+  {
+    position: 'Person in charge of sport activities',
+    duration: '2015',
+    organisation: 'Sähköinsinöörikilta in university of Oulu',
+  },
 ]

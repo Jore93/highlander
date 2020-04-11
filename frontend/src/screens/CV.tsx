@@ -14,7 +14,7 @@ const CV = () => {
     <div className="App-container">
       <Container fluid style={styles.containerStyle}>
         <Row align='start' justify='center'>
-          <Col sm={12} md={3} lg={3} className='sidebar' style={styles.colStyle}>
+          <Col sm={9} md={3} lg={3} className='education' style={styles.colStyle}>
           <h2>Education</h2>
             <ul>
               {
@@ -33,7 +33,7 @@ const CV = () => {
                 })
               }
             </ul>
-            <h2>Languages</h2>
+            <h2>Language skills</h2>
             <ul>
               {
                 languages.map((item, i) => {
@@ -46,7 +46,7 @@ const CV = () => {
               }
             </ul>
           </Col>
-          <Col sm={12} md={4} lg={3} className='content' style={styles.colStyle}>
+          <Col sm={9} md={4} lg={3} className='positions' style={styles.colStyle}>
             <h2>Positions</h2>
             <ul>
               {
@@ -66,7 +66,7 @@ const CV = () => {
               }
             </ul>
           </Col>
-          <Col sm={12} md={4} lg={3} className='content-2' style={styles.colStyle}>
+          <Col sm={9} md={4} lg={3} className='workhistory' style={styles.colStyle}>
             <h2>Workhistory</h2>
             <ul>
               {
@@ -85,6 +85,14 @@ const CV = () => {
                 })
               }
             </ul>
+          </Col>
+        </Row>
+        <Row align='start' justify='center'>
+          <Col sm={9} md={5} lg={5} className='first' style={styles.colStyle}>
+            <h2>My areas of expertise</h2>
+          </Col>
+          <Col sm={9} md={5} lg={5} className='second' style={styles.colStyle}>
+            <h2>My future plans</h2>
           </Col>
         </Row>
       </Container>
