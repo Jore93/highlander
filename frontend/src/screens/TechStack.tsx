@@ -47,9 +47,9 @@ class TechStack extends React.Component {
         {
           techSections.map((section, i) => {
             return (
-              <div id='tech-section'>
+              <div key={i} id='tech-section'>
                 <h2>{section.title}</h2>
-                <Row key={i} className='reactButton' align='center' justify='center'>
+                <Row className='reactButton' align='center' justify='center'>
                   {
                     section.stack.map((tech, j) => {
                       return (
