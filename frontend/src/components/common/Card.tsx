@@ -12,13 +12,21 @@ interface CardInterface {
 class Card extends React.Component<CardInterface, {}> {
   state = {hover: false};
 
-  toggleHover = () => {
-    this.setState({hover: !this.state.hover})
+  enableHover = () => {
+    this.setState({hover: true});
+  }
+  disableHover = () => {
+    this.setState({hover: false});
   }
 
   render() {
     return (
-      <div style={this.state.hover ? styles.colStyleHover : styles.colStyle} className="card" onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+      <div
+        style={this.state.hover ? styles.colStyleHover : styles.colStyle}
+        className="card"
+        onMouseEnter={this.enableHover}
+        onMouseLeave={this.disableHover}
+      >
         <div className="cardRow" style={styles.iconRowStyle}>
           {this.props.icon}
         </div>
