@@ -1,7 +1,7 @@
-import * as express from 'express';
+import express from 'express';
 
 class App {
-  public express;
+  public express: any;
 
   constructor() {
     this.express = express();
@@ -10,9 +10,9 @@ class App {
 
   private mountRoutes = (): void => {
     const router = express.Router();
-    router.get('/', (req, res) => {
+    router.get('/', (req: Request, res: any) => {
       res.json({
-        message: 'Hello world',
+        message: 'Server is alive',
       });
     });
     this.express.use('/', router);
