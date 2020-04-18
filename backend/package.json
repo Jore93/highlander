@@ -1,0 +1,15 @@
+{
+  "name": "contentAPI",
+  "version": "1.0.0",
+  "description": "API for frontend to fetch data",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^13.13.0",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "test": "node test.ts"
+  }
+}
