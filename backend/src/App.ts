@@ -5,6 +5,11 @@ import cors = require('cors');
 import {logLine} from './helpers';
 import {getLanguages, postLanguages} from './endpoints/languages';
 import db from './db';
+import {getEducations, postEducations} from './endpoints/education';
+import {getPositions, postPositions} from './endpoints/positions';
+import {getWorkhistory, postWorkhistory} from './endpoints/workhistory';
+import {getParagraphs, postParagraphs} from './endpoints/paragraph';
+
 
 const tableNames = [
   {
@@ -24,12 +29,8 @@ const tableNames = [
     columns: 'id INT AUTO_INCREMENT PRIMARY KEY, position VARCHAR(127) NOT NULL, duration VARCHAR(127) NOT NULL, organisation VARCHAR(127) NOT NULL'
   },
   {
-    name: 'highlander_pastParagraph',
-    columns: 'id INT AUTO_INCREMENT PRIMARY KEY, content TEXT NOT NULL'
-  },
-  {
-    name: 'highlander_futureParagraph',
-    columns: 'id INT AUTO_INCREMENT PRIMARY KEY, content TEXT NOT NULL'
+    name: 'highlander_paragraphs',
+    columns: 'id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(127) NOT NULL, content TEXT NOT NULL'
   },
 ];
 
@@ -53,6 +54,7 @@ class App {
     tableNames.map(table => {
       db.initDbTable(table.name, table.columns);
     });
+    logLine(`Connection limit is ${db.getConnectionLimit()}`);
   }
 
   private mountRoutes = (): void => {
@@ -61,8 +63,19 @@ class App {
     router.get('/languages', getLanguages);
     router.post('/languages', postLanguages);
 
+    router.get('/education', getEducations);
+    router.post('/education', postEducations);
+
+    router.get('/positions', getPositions);
+    router.post('/positions', postPositions);
+
+    router.get('/workhistory', getWorkhistory);
+    router.post('/workhistory', postWorkhistory);
+
+    router.get('/paragraphs', getParagraphs);
+    router.post('/paragraphs', postParagraphs);
+
     this.express.use('/', router);
-    this.express.use('/languages', router);
   }
 }
 

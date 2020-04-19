@@ -5,10 +5,19 @@ import db from '../db';
 
 const API_KEY = process.env.API_KEY;
 
-export const getLanguages = (req: express.Request, res: express.Response) => {
-  const apiKey: string = req.header('api-key') || '';
+export const getParagraphs = async (req: express.Request, res: express.Response) => {
+  const apiKey: string = req.header('api-key') || '';
+
   if (base64Decode(apiKey) === API_KEY) {
-    db.readLanguageRows(res);
+    if (req.query.title) {
+      const title: string = req.query.title.toString();
+      await db.readParagraphRows(title, res);
+    } else {
+      res.status(200).send({
+        error: true,
+        message: 'Missing query parameters'
+      });
+    }
   } else {
     res.status(403).send({
       message: 'Unauthorized'
@@ -16,14 +25,14 @@ export const getLanguages = (req: express.Request, res: express.Response) => {
   }
 }
 
-export const postLanguages = async (req: express.Request, res: express.Response) => {
+export const postParagraphs = async (req: express.Request, res: express.Response) => {
   const apiKey: string = req.header('api-key') || '';
   if (base64Decode(apiKey) === API_KEY) {
     if (req.body) {
-      const language: string = req.body.language;
-      const level: string = req.body.level;
-      if (language && level) {
-        await db.createLanguageTableRow(language, level, res);
+      const title: string = req.body.title;
+      const content: string = req.body.content;
+      if (title && content) {
+        await db.createParagraphTableRow(title, content, res);
       } else {
         res.status(200).send({
           error: true,

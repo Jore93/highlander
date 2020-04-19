@@ -5,10 +5,10 @@ import db from '../db';
 
 const API_KEY = process.env.API_KEY;
 
-export const getLanguages = (req: express.Request, res: express.Response) => {
+export const getPositions = (req: express.Request, res: express.Response) => {
   const apiKey: string = req.header('api-key') || '';
   if (base64Decode(apiKey) === API_KEY) {
-    db.readLanguageRows(res);
+    db.readPositionRows(res);
   } else {
     res.status(403).send({
       message: 'Unauthorized'
@@ -16,14 +16,15 @@ export const getLanguages = (req: express.Request, res: express.Response) => {
   }
 }
 
-export const postLanguages = async (req: express.Request, res: express.Response) => {
+export const postPositions = async (req: express.Request, res: express.Response) => {
   const apiKey: string = req.header('api-key') || '';
   if (base64Decode(apiKey) === API_KEY) {
     if (req.body) {
-      const language: string = req.body.language;
-      const level: string = req.body.level;
-      if (language && level) {
-        await db.createLanguageTableRow(language, level, res);
+      const position: string = req.body.position;
+      const duration: string = req.body.duration;
+      const organisation: string = req.body.organisation;
+      if (position && duration && organisation) {
+        await db.createPositionTableRow(position, duration, organisation, res);
       } else {
         res.status(200).send({
           error: true,
