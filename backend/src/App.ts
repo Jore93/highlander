@@ -11,12 +11,20 @@ class App {
     this.mountRoutes();
   }
 
+  private base64Decode = (apikey: string) => {
+    console.log(apikey);
+    const res = Buffer.from(apikey, 'base64').toString('utf-8');
+    console.log(res);
+    return res;
+  }
+
   private mountRoutes = (): void => {
     const router = express.Router();
     this.express.use(express.json());
 
     router.get('/', (req: express.Request, res: express.Response) => {
-      if (req.header('api-key') === API_KEY) {
+      const apiKey: string = req.header('api-key') || '';
+      if (this.base64Decode(apiKey) === API_KEY) {
         res.status(200).send({
           message: 'Server is alive',
         });
