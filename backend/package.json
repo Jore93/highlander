@@ -15,7 +15,10 @@
     "mysql": "^2.18.1"
   },
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "nodemon dist/index.js",
     "test": "node test.ts"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
