@@ -44,20 +44,20 @@ class App {
     this.mountRoutes();
   }
 
-  private initExpress = () => {
+  private initExpress = () : void => {
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({extended: true}));
     this.express.use(cors());
   }
 
-  private initDB = () => {
+  private initDB = () : void => {
     tableNames.map(table => {
       db.initDbTable(table.name, table.columns);
     });
     logLine(`Connection limit is ${db.getConnectionLimit()}`);
   }
 
-  private mountRoutes = (): void => {
+  private mountRoutes = () : void => {
     const router = express.Router();
 
     router.get('/languages', getLanguages);
