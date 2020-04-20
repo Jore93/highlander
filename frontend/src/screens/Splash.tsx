@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {StoreState} from '../store/storeTypes';
 import {fetchLanguages, fetchEducations, fetchPositions, fetchWorkhistory, setInitialisation} from '../actions/cvActions';
+import LoadingView from '../components/LoadingView';
 
 interface SplashInterface {
   fetchEducations: Function
@@ -13,6 +14,7 @@ interface SplashInterface {
 }
 
 class Splash extends React.Component<SplashInterface, {}> {
+  state = {loading: true};
   componentDidMount() {
     this.initializeApp()
   }
@@ -22,14 +24,23 @@ class Splash extends React.Component<SplashInterface, {}> {
     await this.props.fetchLanguages();
     await this.props.fetchPositions();
     await this.props.fetchWorkhistory();
-    this.props.setInitialisation(true);
+    this.setState({loading: false});
+  }
+
+  checkLoading = () => {
+    return this.state.loading;
   }
 
   render() {
+    setInterval(() => {
+      if (this.state.loading) {
+        console.log('still loading');
+      } else {
+        this.props.setInitialisation(true);
+      }
+    }, 5000);
     return (
-      <div>
-        <h1 style={{color: 'white'}}>SPLASH</h1>
-      </div>
+      <LoadingView />
     );
   }
 }
