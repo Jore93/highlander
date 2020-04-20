@@ -34,6 +34,16 @@
   color: #61dafb;
 }
 
+.Logo-container {
+  text-align: center;
+  font-family: typewriter;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
 body {
   background-color: #282c34;
 }

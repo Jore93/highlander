@@ -1,12 +1,10 @@
 import React from 'react';
-//import * as Redux from 'redux';
 import {Container, Col, Row} from 'react-grid-system';
 import {connect} from 'react-redux';
 
 import '../App.css';
 import {pastParagraph, futureParagraph} from '../allData';
 
-//import {fetchLanguages} from '../actions';
 import {DARK_HIGHLIGHT, TEXT_COLOR} from '../assets/constants';
 import {cvReducer} from '../store/cvTypes';
 import {StoreState} from '../store/storeTypes';
@@ -16,13 +14,12 @@ class CV extends React.Component<cvReducer, {}> {
     return (
       <div className="App-container">
         <Container fluid style={styles.containerStyle}>
-          <Row align='start' justify='center'>
+          <Row justify='center'>
             <Col sm={9} md={3} lg={3} className='education' style={styles.colStyle}>
               <h2>Education</h2>
-
               <ul>
                 {
-                  this.props.education.map((item, i) => {
+                  this.props.education.reverse().map((item, i) => {
                     return (
                       <div key={i} className='cv-item'>
                         <li>{item.name}</li>
@@ -35,6 +32,7 @@ class CV extends React.Component<cvReducer, {}> {
                   })
                 }
               </ul>
+
               <h2>Language skills</h2>
               <ul>
                 {
@@ -52,7 +50,7 @@ class CV extends React.Component<cvReducer, {}> {
               <h2>Positions</h2>
               <ul>
                 {
-                  this.props.positions.map((item, i) => {
+                  this.props.positions.reverse().map((item, i) => {
                     return (
                       <div key={i} className='cv-item'>
                         <li>{item.position}</li>
@@ -70,7 +68,7 @@ class CV extends React.Component<cvReducer, {}> {
               <h2>Workhistory</h2>
               <ul>
                 {
-                  this.props.workhistory.map((item, i) => {
+                  this.props.workhistory.reverse().map((item, i) => {
                     return (
                       <div key={i} className='cv-item'>
                         <li>{item.position}</li>
@@ -129,8 +127,6 @@ const mapStateToProps = (state: StoreState) => {
 
 export default connect(
   mapStateToProps,
-  {
-    //fetchLanguages,
-  },
+  {},
 )(CV);
 
