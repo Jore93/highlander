@@ -2,8 +2,6 @@ import React, {CSSProperties} from 'react';
 import {IconBaseProps} from 'react-icons';
 import Modal from 'react-modal';
 
-import {DARK_HIGHLIGHT, TEXT_COLOR} from '../assets/constants';
-
 interface ModalInterface {
   title: string,
   content: string,
@@ -22,10 +20,11 @@ class TechModal extends React.Component<ModalInterface, {}> {
     return (
       <Modal
         className={cssClasses.join(' ')}
-        overlayClassName="overlay-tech-modal"
+        overlayClassName='overlay-tech-modal'
         isOpen={isOpen}
         closeTimeoutMS={200}
         shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
       >
         <div style={modalIcon}>
           {icon}

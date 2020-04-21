@@ -130,7 +130,12 @@ li {
 }
 
 .overlay-tech-modal {
-  background-color: rgba(40,44,52,0.5);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-color: rgba(40,44,52,0.75);
 }
 
 .tech-modal {
