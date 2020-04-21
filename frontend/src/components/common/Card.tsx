@@ -22,12 +22,11 @@ class Card extends React.Component<CardInterface, {}> {
   render() {
     return (
       <div
-        style={this.state.hover ? styles.colStyleHover : styles.colStyle}
         className="card"
         onMouseEnter={this.enableHover}
         onMouseLeave={this.disableHover}
       >
-        <div className="cardRow" style={styles.iconRowStyle}>
+        <div className="cardRow">
           {this.props.icon}
         </div>
 
@@ -44,22 +43,6 @@ class Card extends React.Component<CardInterface, {}> {
 export default Card;
 
 const styles = {
-  colStyle: {
-    backgroundColor: DARK_HIGHLIGHT,
-    maxWidth: 400,
-    paddingTop: 20,
-    margin: 15,
-  },
-  colStyleHover: {
-    backgroundColor: HOVER,
-    maxWidth: 400,
-    paddingTop: 20,
-    margin: 15,
-    boxShadow: `0px 0px 15px ${TEXT_COLOR}`,
-  },
-  iconRowStyle: {
-    height: 75,
-  },
   contentRowStyle: {
     color: TEXT_COLOR,
   },
