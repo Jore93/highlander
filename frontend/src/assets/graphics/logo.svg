@@ -2,21 +2,23 @@
 
 <svg
    xmlns="http://www.w3.org/2000/svg"
+   width="210mm"
+   height="297mm"
    viewBox="0 0 210 297"
    version="1.1">
   <g>
     <path class='diagonal'
-       style="fill:none;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:2.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:0"
        d="m 75.347133,146.73314 50.974347,49.17162"
        id="path112"
     />
     <path class='vertical'
-       style="fill:none;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:2.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0;stroke-opacity:1"
        d="M 100.76061,93.921969 V 194.8437"
        id="path108"
     />
     <path class='triangle'
-       style="fill:none;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:2.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:100%;stroke-dashoffset:0"
        d="m 100.76061,131.82743 27.79603,29.13238 -27.79603,27.52876"
        id="path110"
     />

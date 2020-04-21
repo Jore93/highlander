@@ -27,17 +27,9 @@ class Splash extends React.Component<SplashInterface, {}> {
     this.setState({loading: false});
   }
 
-  checkLoading = () => {
-    return this.state.loading;
-  }
-
   render() {
     setInterval(() => {
-      if (this.state.loading) {
-        console.log('still loading');
-      } else {
-        this.props.setInitialisation(true);
-      }
+      this.props.setInitialisation(true);
     }, 5000);
     return (
       <LoadingView />

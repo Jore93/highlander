@@ -19,7 +19,6 @@ interface AppProps {
 
 class App extends React.Component<AppProps, {}> {
   render() {
-    return <Splash />;
     if (!this.props.isInitialized) {
       return <Splash />
     }
