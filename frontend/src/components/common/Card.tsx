@@ -2,7 +2,7 @@ import React from 'react'
 import {IconBaseProps} from 'react-icons/';
 
 import "../../App.css";
-import {TEXT_COLOR, DARK_HIGHLIGHT, HOVER} from '../../assets/constants';
+import {TEXT_COLOR} from '../../assets/constants';
 
 interface CardInterface {
   content: string,
