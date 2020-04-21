@@ -1,6 +1,7 @@
 import React, {CSSProperties} from 'react';
 import {IconBaseProps} from 'react-icons';
 import Modal from 'react-modal';
+
 import {DARK_HIGHLIGHT, TEXT_COLOR} from '../assets/constants';
 
 interface ModalInterface {
@@ -12,34 +13,25 @@ interface ModalInterface {
 
 Modal.setAppElement('#root');
 
+
 class TechModal extends React.Component<ModalInterface, {}> {
 
   render() {
-    const {title, content, icon} = this.props;
+    const {title, content, icon, isOpen} = this.props;
+    const cssClasses = ['tech-modal', isOpen ? 'grow-modal' : 'shrink-modal'];
     return (
       <Modal
-        isOpen={this.props.isOpen}
-        style={{
-          overlay: {
-            backgroundColor: 'rgba(40,44,52,0.25)'
-          },
-          content: {
-            backgroundColor: DARK_HIGHLIGHT,
-            top: 85,  // 50 for NavBar, 35 to have nice padding on bottom
-            left: 60,
-            right: 60,
-            bottom: 60,
-            color: TEXT_COLOR,
-            position: 'absolute',
-            border: `1px solid ${TEXT_COLOR}`,
-          }
-        }}
+        className={cssClasses.join(' ')}
+        overlayClassName="overlay-tech-modal"
+        isOpen={isOpen}
+        closeTimeoutMS={200}
+        shouldCloseOnEsc={true}
       >
         <div style={modalIcon}>
           {icon}
         </div>
         <div style={contentStyle}>
-          <h3>{title}</h3>
+          <h2>{title}</h2>
           <p>{content}</p>
         </div>
       </Modal>

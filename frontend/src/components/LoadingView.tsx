@@ -20,18 +20,18 @@ to {
 const slideDiagonal = keyframes`
 0% {
   stroke: ${BACKGROUND_COLOR};
-  transform: translateY(-50%) translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 20% {
   stroke: ${BACKGROUND_COLOR};
-  transform: translateY(-50%) translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 21% {
   stroke: ${TEXT_COLOR};
 }
 100% {
   stroke: ${TEXT_COLOR};
-  transform: translateY(0%) translateX(0%);
+  transform: translate(0%, 0%);
 }
 `
 
