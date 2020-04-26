@@ -3,12 +3,19 @@ import bodyParser = require('body-parser');
 import cors = require('cors');
 
 import {logLine} from './helpers';
-import {getLanguages, postLanguages} from './endpoints/languages';
+import {
+  getLanguages,
+  postLanguages,
+  getEducations,
+  postEducations,
+  getPositions,
+  postPositions,
+  getWorkhistory,
+  postWorkhistory,
+  getParagraphs,
+  postParagraphs
+} from './endpoints';
 import db from './db';
-import {getEducations, postEducations} from './endpoints/education';
-import {getPositions, postPositions} from './endpoints/positions';
-import {getWorkhistory, postWorkhistory} from './endpoints/workhistory';
-import {getParagraphs, postParagraphs} from './endpoints/paragraph';
 
 
 const tableNames = [
