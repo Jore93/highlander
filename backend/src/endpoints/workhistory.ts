@@ -1,6 +1,6 @@
 import express = require('express');
 require('dotenv').config();
-import {base64Decode} from "../helpers";
+import {base64Decode, logLine} from "../helpers";
 import db from '../db';
 
 const API_KEY = process.env.API_KEY;
@@ -8,6 +8,7 @@ const API_KEY = process.env.API_KEY;
 export const getWorkhistory = (req: express.Request, res: express.Response) => {
   const apiKey: string = req.header('api-key') || '';
   if (base64Decode(apiKey) === API_KEY) {
+    logLine('/GET to /getWorkhistory endpoint');
     db.readWorkhistoryRows(res);
   } else {
     res.status(403).send({
@@ -24,6 +25,7 @@ export const postWorkhistory = async (req: express.Request, res: express.Respons
       const employer: string = req.body.employer;
       const duration: string = req.body.duration;
       if (position && employer && duration) {
+        logLine('/POST to /postWorkhistory endpoint');
         await db.createWorkhistoryTableRow(position, employer, duration, res);
       } else {
         res.status(200).send({
