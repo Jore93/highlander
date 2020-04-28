@@ -31,9 +31,9 @@ class Card extends React.Component<CardInterface, {}> {
         </div>
 
         <div className="cardRow" style={styles.contentRowStyle}>
-          <h3 style={{textAlign: 'center'}}>
+          <h2 style={{textAlign: 'center', wordWrap: 'break-word'}}>
             {this.props.content}
-          </h3>
+          </h2>
         </div>
       </div>
     );

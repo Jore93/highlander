@@ -44,4 +44,3 @@ export const postLanguages = async (req: express.Request, res: express.Response)
     });
   }
 }
-

@@ -17,9 +17,9 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     const {path, name, width} = this.props;
     if (width > MIN_WIDTH) {
       return (
-        <Col className={`${name}NavBarButton`} sm={1} md={1} lg={1} style={styles.navButtonStyle}>
+        <div className={`${name}NavBarButton`} style={styles.navButtonStyle}>
           <Link to={path}>{name}</Link>
-        </Col>
+        </div>
       );
     }
     return (
@@ -36,9 +36,8 @@ export default NavbarButton;
 
 const styles = {
   navButtonStyle: {
-    flex: 1,
     underline: 'none',
-    margin: 5,
+    margin: 15,
   },
   rowStyle: {
     height: 40,

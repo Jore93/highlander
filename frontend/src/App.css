@@ -1,6 +1,7 @@
 .App-container {
   text-align: center;
-  font-family: typewriter;
+  font-family: saucer;
+  font-weight: lighter;
 }
 
 .App-logo {
@@ -62,17 +63,33 @@ body {
   z-index: 10;
 }
 
+h1 {
+  color: #61dafb;
+  font-size: 40px;
+  font-weight: lighter;
+  font-family: saucer;
+}
+
 h2 {
   color: #61dafb;
   font-size: 36px;
-  font-family: typewriter;
+  font-weight: lighter;
+  font-family: saucer;
 }
+
+p {
+  color: #61dafb;
+  font-family: typewriter;
+  font-size: 18px;
+}
+
 a {
   display: flex;
   text-decoration: none;
   color: #61dafb;
-  font-size: 24px;
-  font-family: typewriter;
+  font-size: 20px;
+  font-family: saucer;
+  font-weight: lighter;
   justify-content: center;
 }
 
@@ -87,8 +104,9 @@ li {
 
 .reactButton {
   color: #61dafb;
-  font-size: 24px;
-  font-family: typewriter;
+  font-size: 22px;
+  font-family: saucer;
+  font-weight: lighter;
 }
 
 .HamburgerButton {
@@ -177,6 +195,13 @@ li {
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: saucer;
+  src: local('saucer'), url(./assets/fonts/SaucerBB.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
