@@ -23,19 +23,28 @@ import {
 } from 'react-icons/di';
 import {GiCircuitry} from 'react-icons/gi';
 
+
+const styles = {
+  headerStyle: {
+    textAlign: 'center',
+    wordWrap: 'break-word',
+  }
+};
+
+
 export const frontendTechs = [
   {
-    title: 'Reactjs',
+    title: <h2 style={styles.headerStyle}>Reactjs</h2>,
     icon: <FaReact size={'100%'} className='icon' />,
     content: 'The page you are looking for is made with React.',
   },
   {
-    title: 'React Native',
+    title: <h2 style={styles.headerStyle}>React Native</h2>,
     icon: <FaReact size={'100%'} className='icon' />,
     content: 'Something about React Native',
   },
   {
-    title: 'Dart/Flutter',
+    title: <h2 style={styles.headerStyle}>Flutter</h2>,
     icon: <DiDart size={'100%'} className='icon' />,
     content: 'Something about Flutter',
   },
@@ -43,27 +52,27 @@ export const frontendTechs = [
 
 export const backendTechs = [
   {
-    title: 'Node.js',
+    title: <h2 style={styles.headerStyle}>Node.js</h2>,
     icon: <FaNodeJs size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Java',
+    title: <h2 style={styles.headerStyle}>Java</h2>,
     icon: <FaJava size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Scala',
+    title: <h2 style={styles.headerStyle}>Scala</h2>,
     icon: <DiScala size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'MySQL',
+    title: <h2 style={styles.headerStyle}>MySQL</h2>,
     icon: <DiMysql size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'PHP',
+    title: <h2 style={styles.headerStyle}>PHP</h2>,
     icon: <FaPhp size={'100%'} className='icon' />,
     content: '',
   },
@@ -71,22 +80,22 @@ export const backendTechs = [
 
 export const testTechs = [
   {
-    title: 'Python',
+    title: <h2 style={styles.headerStyle}>Python</h2>,
     icon: <FaPython size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Selenium',
+    title: <h2 style={styles.headerStyle}>Selenium</h2>,
     icon: <FaFirefox size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'SikuliX',
+    title: <h2 style={styles.headerStyle}>SikuliX</h2>,
     icon: <FaRobot size={'100%'} className='icon' />,
-  content: '',
+    content: '',
   },
   {
-    title: 'RobotFramework',
+    title: <h2 style={styles.headerStyle}>Robot&#8203;Framework</h2>,
     icon: <FaRobot size={'100%'} className='icon' />,
     content: '',
   },
@@ -94,22 +103,22 @@ export const testTechs = [
 
 export const platforms = [
   {
-    title: 'AWS',
+    title: <h2 style={styles.headerStyle}>AWS</h2>,
     icon: <FaAws size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Linux',
+    title: <h2 style={styles.headerStyle}>Linux</h2>,
     icon: <FaLinux size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Windows',
+    title: <h2 style={styles.headerStyle}>Windows</h2>,
     icon: <FaWindows size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Raspberry Pi',
+    title: <h2 style={styles.headerStyle}>Raspberry Pi</h2>,
     icon: <FaRaspberryPi size={'100%'} className='icon' />,
     content: '',
   },
@@ -117,12 +126,12 @@ export const platforms = [
 
 export const embeddedTechs = [
   {
-    title: 'C',
+    title: <h2 style={styles.headerStyle}>C</h2>,
     icon: <GiCircuitry size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'C++',
+    title: <h2 style={styles.headerStyle}>C++</h2>,
     icon: <GiCircuitry size={'100%'} className='icon' />,
     content: '',
   },
@@ -130,22 +139,22 @@ export const embeddedTechs = [
 
 export const toolStack = [
   {
-    title: 'Git',
+    title: <h2 style={styles.headerStyle}>Git</h2>,
     icon: <FaGit size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Docker',
+    title: <h2 style={styles.headerStyle}>Docker</h2>,
     icon: <FaDocker size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'VS Codium',
+    title: <h2 style={styles.headerStyle}>VS Codium</h2>,
     icon: <DiVisualstudio size={'100%'} className='icon' />,
     content: '',
   },
   {
-    title: 'Photoshop',
+    title: <h2 style={styles.headerStyle}>Photoshop</h2>,
     icon: <DiPhotoshop size={'100%'} className='icon' />,
     content: '',
   },

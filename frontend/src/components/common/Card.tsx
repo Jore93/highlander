@@ -5,7 +5,7 @@ import "../../App.css";
 import {TEXT_COLOR} from '../../assets/constants';
 
 interface CardInterface {
-  content: string,
+  content: JSX.Element,
   icon: IconBaseProps,
 }
 
@@ -31,9 +31,7 @@ class Card extends React.Component<CardInterface, {}> {
         </div>
 
         <div className="cardRow" style={styles.contentRowStyle}>
-          <h2 style={{textAlign: 'center', wordWrap: 'break-word'}}>
-            {this.props.content}
-          </h2>
+          {this.props.content}
         </div>
       </div>
     );

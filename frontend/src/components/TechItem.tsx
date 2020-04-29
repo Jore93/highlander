@@ -5,7 +5,7 @@ import TechModal from './TechModal';
 import Card from './common/Card';
 
 interface TechItemInterface {
-  title: string,
+  title: JSX.Element,
   content: string,
   icon: IconBaseProps,
 }

@@ -3,7 +3,7 @@ import {IconBaseProps} from 'react-icons';
 import Modal from 'react-modal';
 
 interface ModalInterface {
-  title: string,
+  title: JSX.Element,
   content: string,
   icon: IconBaseProps,
   isOpen: boolean,
@@ -41,6 +41,7 @@ class TechModal extends React.Component<ModalInterface, {}> {
 export default TechModal;
 
 const modalIcon: CSSProperties = {
+  marginTop: 30,
   height: 100,
 };
 

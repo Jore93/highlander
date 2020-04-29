@@ -23,7 +23,7 @@ class Navbar extends React.Component {
   routes = [
     {
       path: "/",
-      title: "Home",
+      title: <h2 style={{textAlign: 'center', wordWrap: 'break-word'}}>Home</h2>,
       icon: <FaHome size={'100%'} className='icon' />,
     },
   ].concat(links);
@@ -51,7 +51,7 @@ class Navbar extends React.Component {
                 <NavbarButton
                   key={i}
                   path={route.path}
-                  name={route.title}
+                  nameElement={route.title}
                   width={this.state.width}
                   toggleMenu={this.toggleMenu}
                 />
@@ -67,7 +67,7 @@ class Navbar extends React.Component {
           <NavbarButton
             key={i}
             path={route.path}
-            name={route.title}
+            nameElement={route.title}
             width={this.state.width}
             toggleMenu={this.toggleMenu}
           />
