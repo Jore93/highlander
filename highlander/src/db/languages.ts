@@ -20,11 +20,7 @@ export default class Language extends Model<LanguageAttributes, LanguageCreation
 
 export const createLanguage = async (langObj: LanguageAttributes): Promise<any> => {
   try {
-    const newLanguage: any = await Language.create({
-      uuid: langObj.uuid,
-      language: langObj.language,
-      level: langObj.level,
-    });
+    const newLanguage: any = await Language.create(langObj);
     return {
       ok: true,
       data: newLanguage.dataValues,

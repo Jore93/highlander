@@ -1,6 +1,10 @@
 import {Sequelize, DataTypes} from 'sequelize';
 
+import Education from './education';
 import Language from './languages';
+import Paragraph from './paragraphs';
+import Position from './positions';
+import Workhistory from './workhistory';
 
 export const sequelize = new Sequelize(
       process.env.DB_NAME || '',
@@ -14,6 +18,32 @@ export const sequelize = new Sequelize(
         },
       }
     );
+
+Education.init(
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      unique: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    place: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+  }
+);
 
 Language.init(
   {
@@ -34,6 +64,80 @@ Language.init(
   },
   {
     sequelize,
+  }
+);
+
+Paragraph.init(
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      unique: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize
+  }
+);
+
+Position.init(
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      unique: true,
+    },
+    position: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    organisation: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize
+  }
+);
+
+Workhistory.init(
+  {
+    uuid: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+      unique: true,
+    },
+    employer: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    position: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize
   }
 );
 
