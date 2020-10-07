@@ -55,7 +55,8 @@ export const createEducation = async (eduObj: EducationAttributes): Promise<any>
     };
   }
 };
-export const readEducation = async (uuid?: string, readAll: boolean = true): Promise<any> => {
+
+export const readEducation = async (uuid?: string, readAll?: boolean): Promise<any> => {
   try {
     if (readAll) {
       const langs = await Education.findAll();
@@ -68,7 +69,7 @@ export const readEducation = async (uuid?: string, readAll: boolean = true): Pro
       const lang: any = await Education.findOne({where: {uuid}});
       return {
         ok: true,
-        data: lang.dataValues,
+        data: lang?.dataValues || 'Nothing found with UUID',
       };
     }
   } catch (err) {
@@ -95,6 +96,7 @@ export const updateEducation = async (uuid: string, name?: string, place?: strin
     };
   }
 };
+
 export const deleteEducation = async (uuid: string): Promise<any> => {
   try {
     const deletedLang = await Education.destroy({where: {uuid}});
