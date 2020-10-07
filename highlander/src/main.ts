@@ -7,7 +7,7 @@ import {logLine} from './helpers';
 
 async function bootstrap() {
   const db = new DB();
-  db.init();
+  await db.init();
 
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);

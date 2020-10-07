@@ -1,4 +1,4 @@
-import {Model, Optional} from 'sequelize';
+import {Model, Optional, DataTypes} from 'sequelize';
 
 interface WorkhistoryAttributes {
   uuid: string;
@@ -19,6 +19,26 @@ export default class Workhistory extends Model<WorkhistoryAttributes, Workhistor
   public readonly updatedAt!: Date;
 };
 
+export const workhistoryAttributes = {
+  uuid: {
+    type: DataTypes.UUID,
+    primaryKey: true,
+    allowNull: false,
+    unique: true,
+  },
+  employer: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  position: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  duration: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+};
 
 export const createWorkhistory = async (workObj: WorkhistoryAttributes): Promise<any> => {
   try {

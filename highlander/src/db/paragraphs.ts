@@ -1,4 +1,4 @@
-import {Model, Optional} from 'sequelize';
+import {Model, Optional, DataTypes} from 'sequelize';
 
 interface ParagraphAttributes {
   uuid: string;
@@ -17,6 +17,22 @@ export default class Paragraph extends Model<ParagraphAttributes, ParagraphCreat
   public readonly updatedAt!: Date;
 };
 
+export const paragraphAttributes = {
+  uuid: {
+    type: DataTypes.UUID,
+    primaryKey: true,
+    allowNull: false,
+    unique: true,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  content: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+};
 
 export const createParagraph = async (paragraphObj: ParagraphAttributes): Promise<any> => {
   try {

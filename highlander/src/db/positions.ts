@@ -1,4 +1,4 @@
-import {Model, Optional} from 'sequelize';
+import {Model, Optional, DataTypes} from 'sequelize';
 
 interface PositionAttributes {
   uuid: string;
@@ -19,6 +19,26 @@ export default class Position extends Model<PositionAttributes, PositionCreation
   public readonly updatedAt!: Date;
 };
 
+export const positionAttributes = {
+  uuid: {
+    type: DataTypes.UUID,
+    primaryKey: true,
+    allowNull: false,
+    unique: true,
+  },
+  position: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  duration: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  organisation: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+};
 
 export const createPosition = async (positionObj: PositionAttributes): Promise<any> => {
   try {

@@ -1,4 +1,4 @@
-import {Model, Optional} from 'sequelize';
+import {Model, Optional, DataTypes} from 'sequelize';
 
 interface EducationAttributes {
   uuid: string;
@@ -19,6 +19,26 @@ export default class Education extends Model<EducationAttributes, EducationCreat
   public readonly updatedAt!: Date;
 };
 
+export const educationAttributes = {
+  uuid: {
+    type: DataTypes.UUID,
+    primaryKey: true,
+    allowNull: false,
+    unique: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  place: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  duration: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+};
 
 export const createEducation = async (eduObj: EducationAttributes): Promise<any> => {
   try {

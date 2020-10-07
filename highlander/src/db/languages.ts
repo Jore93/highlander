@@ -1,4 +1,4 @@
-import {Model, Optional} from 'sequelize';
+import {Model, Optional, DataTypes} from 'sequelize';
 
 interface LanguageAttributes {
   uuid: string;
@@ -17,6 +17,22 @@ export default class Language extends Model<LanguageAttributes, LanguageCreation
   public readonly updatedAt!: Date;
 };
 
+export const languageAttributes = {
+  uuid: {
+    type: DataTypes.UUID,
+    primaryKey: true,
+    allowNull: false,
+    unique: true,
+  },
+  language: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  level: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+};
 
 export const createLanguage = async (langObj: LanguageAttributes): Promise<any> => {
   try {
