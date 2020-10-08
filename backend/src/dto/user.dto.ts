@@ -18,6 +18,8 @@ export class readUserDto {
   readonly password?: string;
   @ApiProperty({example: true, description: 'Boolean if user is admin or not', required: false})
   readonly admin?: boolean;
+  @ApiProperty({example: true, description: 'Wether to read all items from table or just item with UUID', required: false})
+  readonly readAll?: boolean;
 };
 
 export class updateUserDto {

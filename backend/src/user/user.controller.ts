@@ -33,9 +33,9 @@ export class UserController {
 
   @Post('/read')
   async readUser(@Body() post: readUserDto, @Res() res: express.Response): Promise<any> {
-    if (post?.uuid || post?.username || post?.password || post?.admin) {
+    if (post?.uuid || post?.username || post?.password || post?.admin !== undefined || post?.readAll !== undefined) {
       try {
-        const readUser = await this.userService.read(post?.uuid, post?.username, post?.password, post?.admin);
+        const readUser = await this.userService.read(post?.uuid, post?.username, post?.password, post?.admin, post?.readAll);
         return res.status(readUser.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readUser);
       } catch (err) {
         console.error(err);

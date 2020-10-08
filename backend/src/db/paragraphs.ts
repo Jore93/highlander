@@ -5,7 +5,7 @@ interface ParagraphAttributes {
   title: string;
   content: string;
 }
-interface ParagraphCreationAttributes extends Optional<ParagraphAttributes, 'uuid'> {};
+type ParagraphCreationAttributes = Optional<ParagraphAttributes, 'uuid'>;
 
 export default class Paragraph extends Model<ParagraphAttributes, ParagraphCreationAttributes> implements ParagraphAttributes {
   public uuid!: string;
@@ -49,22 +49,21 @@ export const createParagraph = async (paragraphObj: ParagraphAttributes): Promis
     };
   }
 };
-export const readParagraph = async (uuid?: string, readAll: boolean = true): Promise<any> => {
+export const readParagraph = async (where?: Record<string, string>, readAll?: boolean): Promise<any> => {
+  let paragraphs: Paragraph[];
   try {
     if (readAll) {
-      const langs = await Paragraph.findAll();
-      return {
-        ok: true,
-        data: langs.map((lang: any) => {
-        return lang.dataValues;
-      })};
+      paragraphs = await Paragraph.findAll();
     } else {
-      const lang: any = await Paragraph.findOne({where: {uuid}});
-      return {
-        ok: true,
-        data: lang.dataValues,
-      };
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      paragraphs = await Paragraph.findAll({where});
     }
+    return {
+      ok: true,
+      data: paragraphs.map((paragraph: any) => {
+      return paragraph.dataValues;
+    })};
   } catch (err) {
     console.error(err);
     return {

@@ -33,9 +33,9 @@ export class EducationController {
 
   @Post('/read')
   async readEducation(@Body() post: readEducationDto, @Res() res: express.Response): Promise<any> {
-    if (post?.uuid || post?.readAll) {
+    if (post?.uuid || post?.name || post?.place || post?.duration || post?.readAll !== undefined) {
       try {
-        const readEdu = await this.educationService.read(post?.uuid, post?.readAll);
+        const readEdu = await this.educationService.read(post?.uuid, post?.name, post?.place, post?.duration, post?.readAll);
         return res.status(readEdu.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readEdu);
       } catch (err) {
         console.error(err);

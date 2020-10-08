@@ -6,7 +6,7 @@ interface UserAttributes {
   password: string;
   admin: boolean
 }
-interface UserCreationAttributes extends Optional<UserAttributes, 'uuid'> {};
+type UserCreationAttributes = Optional<UserAttributes, 'uuid'>;
 
 export default class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
   public uuid!: string;
@@ -57,12 +57,19 @@ export const createUser = async (userObj: UserAttributes): Promise<any> => {
   }
 };
 
-export const readUser = async (where: Record<string, string | boolean>): Promise<any> => {
+export const readUser = async (where?: Record<string, string | boolean>, readAll?: boolean): Promise<any> => {
+  let users: any;
   try {
-    const user: any = await User.findOne({where});
+    if (readAll) {
+      users = await User.findAll();
+    } else {
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      users = await User.findAll({where});
+    }
     return {
       ok: true,
-      data: user?.dataValues || 'No user found',
+      data: users.map((user: any) => {return user.dataValues}),
     };
   } catch (err) {
     console.error(err);

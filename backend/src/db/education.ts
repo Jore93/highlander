@@ -6,7 +6,7 @@ interface EducationAttributes {
   place: string;
   duration: string
 }
-interface EducationCreationAttributes extends Optional<EducationAttributes, 'uuid'> {};
+type EducationCreationAttributes = Optional<EducationAttributes, 'uuid'>;
 
 export default class Education extends Model<EducationAttributes, EducationCreationAttributes> implements EducationAttributes {
   public uuid!: string;
@@ -56,22 +56,21 @@ export const createEducation = async (eduObj: EducationAttributes): Promise<any>
   }
 };
 
-export const readEducation = async (uuid?: string, readAll?: boolean): Promise<any> => {
+export const readEducation = async (where?: Record<string, string>, readAll?: boolean): Promise<any> => {
+  let education: Education[];
   try {
     if (readAll) {
-      const langs = await Education.findAll();
-      return {
-        ok: true,
-        data: langs.map((lang: any) => {
-        return lang.dataValues;
-      })};
+      education = await Education.findAll();
     } else {
-      const lang: any = await Education.findOne({where: {uuid}});
-      return {
-        ok: true,
-        data: lang?.dataValues || 'Nothing found with UUID',
-      };
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      education = await Education.findAll({where});
     }
+    return {
+      ok: true,
+      data: education.map((education: any) => {
+      return education.dataValues;
+    })};
   } catch (err) {
     console.error(err);
     return {

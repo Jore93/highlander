@@ -6,7 +6,7 @@ interface PositionAttributes {
   duration: string;
   organisation: string;
 }
-interface PositionCreationAttributes extends Optional<PositionAttributes, 'uuid'> {};
+type PositionCreationAttributes = Optional<PositionAttributes, 'uuid'>;
 
 export default class Position extends Model<PositionAttributes, PositionCreationAttributes> implements PositionAttributes {
   public uuid!: string;
@@ -55,22 +55,21 @@ export const createPosition = async (positionObj: PositionAttributes): Promise<a
     };
   }
 };
-export const readPosition = async (uuid?: string, readAll: boolean = true): Promise<any> => {
+export const readPosition = async (where?: Record<string, string>, readAll = true): Promise<any> => {
+  let positions: Position[];
   try {
     if (readAll) {
-      const langs = await Position.findAll();
-      return {
-        ok: true,
-        data: langs.map((lang: any) => {
-        return lang.dataValues;
-      })};
+      positions = await Position.findAll();
     } else {
-      const lang: any = await Position.findOne({where: {uuid}});
-      return {
-        ok: true,
-        data: lang.dataValues,
-      };
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      positions = await Position.findAll({where});
     }
+    return {
+      ok: true,
+      data: positions.map((position: any) => {
+      return position.dataValues;
+    })};
   } catch (err) {
     console.error(err);
     return {

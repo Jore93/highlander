@@ -5,21 +5,21 @@ import {createEducation, deleteEducation, readEducation, updateEducation} from '
 
 @Injectable()
 export class EducationService {
-  create = async (name: string, place: string, duration: string) => {
+  create = async (name: string, place: string, duration: string): Promise<any> => {
     const uuid = uuidv4();
     const eduObj = {uuid, name, place, duration}
     return await createEducation(eduObj);
   };
 
-  read = async (uuid?: string, readAll?: boolean) => {
-    return uuid ? await readEducation(uuid) : await readEducation(uuid, readAll);
+  read = async (uuid?: string, name?: string, place?: string, duration?: string, readAll?: boolean): Promise<any> => {
+    return await readEducation({uuid, name, place, duration}, readAll);
   };
 
-  update = async (uuid: string, name?: string, place?: string, duration?: string) => {
+  update = async (uuid: string, name?: string, place?: string, duration?: string): Promise<any> => {
     return await updateEducation(uuid, name, place, duration);
   };
 
-  delete = async (uuid: string) => {
+  delete = async (uuid: string): Promise<any> => {
     return await deleteEducation(uuid);
   };
 }

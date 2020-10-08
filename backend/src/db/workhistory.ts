@@ -6,7 +6,7 @@ interface WorkhistoryAttributes {
   position: string;
   duration: string
 }
-interface WorkhistoryCreationAttributes extends Optional<WorkhistoryAttributes, 'uuid'> {};
+type WorkhistoryCreationAttributes = Optional<WorkhistoryAttributes, 'uuid'>;
 
 export default class Workhistory extends Model<WorkhistoryAttributes, WorkhistoryCreationAttributes> implements WorkhistoryAttributes {
   public uuid!: string;
@@ -55,7 +55,7 @@ export const createWorkhistory = async (workObj: WorkhistoryAttributes): Promise
     };
   }
 };
-export const readWorkhistory = async (uuid?: string, readAll: boolean = true): Promise<any> => {
+export const readWorkhistory = async (uuid?: string, readAll = true): Promise<any> => {
   try {
     if (readAll) {
       const langs = await Workhistory.findAll();

@@ -5,21 +5,21 @@ import {createLanguage, deleteLanguage, readLanguage, updateLanguage} from 'src/
 
 @Injectable()
 export class LanguageService {
-  create = async (language: string, level: string) => {
+  create = async (language: string, level: string): Promise<any> => {
     const uuid = uuidv4();
     const langObj = {uuid, language, level}
     return await createLanguage(langObj);
   };
 
-  read = async (uuid?: string, readAll?: boolean) => {
-    return uuid ? await readLanguage(uuid) : await readLanguage(uuid, readAll);
+  read = async (uuid?: string, language?: string, level?: string, readAll?: boolean): Promise<any> => {
+    return await readLanguage({uuid, language, level}, readAll);
   };
 
-  update = async (uuid: string, language?: string, level?: string) => {
+  update = async (uuid: string, language?: string, level?: string): Promise<any> => {
     return await updateLanguage(uuid, language, level);
   };
 
-  delete = async (uuid: string) => {
+  delete = async (uuid: string): Promise<any> => {
     return await deleteLanguage(uuid);
   };
 }

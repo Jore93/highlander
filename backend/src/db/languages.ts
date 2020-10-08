@@ -5,7 +5,7 @@ interface LanguageAttributes {
   language: string;
   level: string;
 }
-interface LanguageCreationAttributes extends Optional<LanguageAttributes, 'uuid'> {};
+type LanguageCreationAttributes = Optional<LanguageAttributes, 'uuid'>;
 
 export default class Language extends Model<LanguageAttributes, LanguageCreationAttributes> implements LanguageAttributes {
   public uuid!: string;
@@ -49,22 +49,21 @@ export const createLanguage = async (langObj: LanguageAttributes): Promise<any> 
     };
   }
 };
-export const readLanguage = async (uuid?: string, readAll: boolean = true): Promise<any> => {
+export const readLanguage = async (where?: Record<string, string>, readAll?: boolean): Promise<any> => {
+  let langs: Language[];
   try {
     if (readAll) {
-      const langs = await Language.findAll();
-      return {
-        ok: true,
-        data: langs.map((lang: any) => {
-        return lang.dataValues;
-      })};
+      langs = await Language.findAll();
     } else {
-      const lang: any = await Language.findOne({where: {uuid}});
-      return {
-        ok: true,
-        data: lang.dataValues,
-      };
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      langs = await Language.findAll({where});
     }
+    return {
+      ok: true,
+      data: langs.map((lang: any) => {
+      return lang.dataValues;
+    })};
   } catch (err) {
     console.error(err);
     return {

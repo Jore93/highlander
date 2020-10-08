@@ -33,9 +33,9 @@ export class LanguageController {
 
   @Post('/read')
   async readLanguage(@Body() post: readLanguageDto, @Res() res: express.Response): Promise<any> {
-    if (post?.uuid || post?.readAll) {
+    if (post?.uuid || post?.language || post?.level || post?.readAll !== undefined) {
       try {
-        const readLang = await this.languageService.read(post?.uuid, post?.readAll);
+        const readLang = await this.languageService.read(post?.uuid, post?.language, post?.level, post?.readAll);
         return res.status(readLang.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readLang);
       } catch (err) {
         console.error(err);
