@@ -4,6 +4,7 @@ import Education, {educationAttributes} from './education';
 import Language, {languageAttributes} from './languages';
 import Paragraph, {paragraphAttributes} from './paragraphs';
 import Position, {positionAttributes} from './positions';
+import User, {userAttributes} from './user';
 import Workhistory, {workhistoryAttributes} from './workhistory';
 
 export const sequelize = new Sequelize(
@@ -23,11 +24,12 @@ export default class DB {
     Language.init(languageAttributes, options);
     Paragraph.init(paragraphAttributes, options);
     Position.init(positionAttributes, options);
+    User.init(userAttributes, options);
     Workhistory.init(workhistoryAttributes, options);
   }
 
   init = async (): Promise<any> => {
-    await sequelize.sync();
+    await sequelize.sync({alter: true});
   };
 }
 
