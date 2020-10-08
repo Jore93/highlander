@@ -33,21 +33,21 @@ export class LanguageController {
 
   @Post('/read')
   async readLanguage(@Body() post: readLanguageDto, @Res() res: express.Response): Promise<any> {
-    try {
-      if (post?.uuid || post?.readAll) {
+    if (post?.uuid || post?.readAll) {
+      try {
         const readLang = await this.languageService.read(post?.uuid, post?.readAll);
         return res.status(readLang.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readLang);
-      } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
+      } catch (err) {
+        console.error(err);
+        return res.status(HttpStatus.NOT_FOUND).json({
           ok: false,
-          data: 'Need to post either uuid and/or readAll',
+          data: 'Reading language failed',
         });
       }
-    } catch (err) {
-      console.error(err);
-      return res.status(HttpStatus.NOT_FOUND).json({
+    } else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
         ok: false,
-        data: 'Reading language failed',
+        data: 'Need to post either uuid and/or readAll',
       });
     }
   }

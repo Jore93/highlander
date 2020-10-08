@@ -33,21 +33,21 @@ export class EducationController {
 
   @Post('/read')
   async readEducation(@Body() post: readEducationDto, @Res() res: express.Response): Promise<any> {
-    try {
-      if (post?.uuid || post?.readAll) {
+    if (post?.uuid || post?.readAll) {
+      try {
         const readEdu = await this.educationService.read(post?.uuid, post?.readAll);
         return res.status(readEdu.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readEdu);
-      } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
+      } catch (err) {
+        console.error(err);
+        return res.status(HttpStatus.NOT_FOUND).json({
           ok: false,
-          data: 'Need to post either uuid and/or readAll',
+          data: 'Reading education failed',
         });
       }
-    } catch (err) {
-      console.error(err);
-      return res.status(HttpStatus.NOT_FOUND).json({
+    } else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
         ok: false,
-        data: 'Reading education failed',
+        data: 'Need to post either uuid and/or readAll',
       });
     }
   }

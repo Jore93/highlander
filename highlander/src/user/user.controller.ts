@@ -33,21 +33,21 @@ export class UserController {
 
   @Post('/read')
   async readUser(@Body() post: readUserDto, @Res() res: express.Response): Promise<any> {
-    try {
-      if (post?.uuid || post?.username || post?.password || post?.admin) {
+    if (post?.uuid || post?.username || post?.password || post?.admin) {
+      try {
         const readUser = await this.userService.read(post?.uuid, post?.username, post?.password, post?.admin);
         return res.status(readUser.ok ? HttpStatus.OK : HttpStatus.NOT_FOUND).json(readUser);
-      } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
+      } catch (err) {
+        console.error(err);
+        return res.status(HttpStatus.NOT_FOUND).json({
           ok: false,
-          data: 'Need to post either uuid and/or readAll',
+          data: 'Reading user failed',
         });
       }
-    } catch (err) {
-      console.error(err);
-      return res.status(HttpStatus.NOT_FOUND).json({
+    } else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
         ok: false,
-        data: 'Reading user failed',
+        data: 'Missing parameters',
       });
     }
   }

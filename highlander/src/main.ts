@@ -21,7 +21,9 @@ async function bootstrap() {
   await db.init();
 
   const app = await NestFactory.create(AppModule);
-  createSwaggerDoc(app);
+  if (process.env.STATE !== 'PROD') {
+    createSwaggerDoc(app);
+  }
 
   await app.listen(5000);
 }
