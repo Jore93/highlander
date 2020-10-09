@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
@@ -9,13 +10,23 @@ import Projects from './screens/Projects';
 import TechStack from './screens/TechStack';
 
 import Navbar from './components/Navbar';
+import Splash from './screens/Splash';
+import {StoreState} from './store/storeTypes';
 
-class App extends React.Component {
+interface AppProps {
+  isInitialized: boolean
+}
+
+class App extends React.Component<AppProps, {}> {
   render() {
+    if (!this.props.isInitialized) {
+      return <Splash />
+    }
     return (
       <div className="App">
         <Router>
           <Navbar />
+
           <Switch>
             <Route path="/about">
               <About />
@@ -42,4 +53,13 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state: StoreState) => {
+  const {isInitialized} = state.cv;
+  return {isInitialized};
+};
+
+export default connect(
+  mapStateToProps,
+  {},
+)(App)
+

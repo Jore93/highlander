@@ -1,5 +1,7 @@
 .App-container {
   text-align: center;
+  font-family: saucer;
+  font-weight: lighter;
 }
 
 .App-logo {
@@ -33,6 +35,19 @@
   color: #61dafb;
 }
 
+.Logo-container {
+  text-align: center;
+  font-family: typewriter;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+body {
+  background-color: #282c34;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -48,24 +63,50 @@
   z-index: 10;
 }
 
+h1 {
+  color: #61dafb;
+  font-size: 40px;
+  font-weight: lighter;
+  font-family: saucer;
+}
+
 h2 {
   color: #61dafb;
   font-size: 36px;
-  font-family: typewriter;
+  font-weight: lighter;
+  font-family: saucer;
 }
+
+p {
+  color: #61dafb;
+  font-family: typewriter;
+  font-size: 18px;
+}
+
 a {
   display: flex;
   text-decoration: none;
   color: #61dafb;
-  font-size: 24px;
-  font-family: typewriter;
+  font-size: 20px;
+  font-family: saucer;
+  font-weight: lighter;
   justify-content: center;
+}
+
+li {
+  text-align: start;
+  /* list-style: none; */
+}
+
+.cv-item {
+  margin-bottom: 15px;
 }
 
 .reactButton {
   color: #61dafb;
-  font-size: 24px;
-  font-family: typewriter;
+  font-size: 22px;
+  font-family: saucer;
+  font-weight: lighter;
 }
 
 .HamburgerButton {
@@ -90,9 +131,77 @@ a {
 #tech-section {
   margin-top: 50px;
 }
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #191920;
+  width: 20rem;
+  height: 20rem;
+  margin: 15px;
+  justify-content: center;
+}
+.card:hover {
+  box-shadow: 0px 0px 15px #61dafb;
+  cursor: pointer;
+}
+
+.overlay-tech-modal {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  background-color: rgba(40,44,52,0.75);
+}
+
+.tech-modal {
+  background-color: #191920;
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  left: 50px;
+  bottom: 50px;
+  color: #61dafb;
+  border: 1px solid #61dafb;
+}
+.grow-modal {
+  animation: growModal 0.5s ease;
+}
+
+.shrink-modal {
+  animation: shrinkModal 0.5s ease;
+}
+
+@keyframes growModal {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes shrinkModal {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
 @font-face {
   font-family: typewriter;
   src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: saucer;
+  src: local('saucer'), url(./assets/fonts/SaucerBB.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }

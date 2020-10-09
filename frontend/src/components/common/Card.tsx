@@ -2,10 +2,10 @@ import React from 'react'
 import {IconBaseProps} from 'react-icons/';
 
 import "../../App.css";
-import {TEXT_COLOR, DARK_HIGHLIGHT, HOVER} from '../../assets/constants';
+import {TEXT_COLOR} from '../../assets/constants';
 
 interface CardInterface {
-  content: string,
+  content: JSX.Element,
   icon: IconBaseProps,
 }
 
@@ -22,19 +22,16 @@ class Card extends React.Component<CardInterface, {}> {
   render() {
     return (
       <div
-        style={this.state.hover ? styles.colStyleHover : styles.colStyle}
         className="card"
         onMouseEnter={this.enableHover}
         onMouseLeave={this.disableHover}
       >
-        <div className="cardRow" style={styles.iconRowStyle}>
+        <div className="cardRow">
           {this.props.icon}
         </div>
 
         <div className="cardRow" style={styles.contentRowStyle}>
-          <h3 style={{textAlign: 'center'}}>
-            {this.props.content}
-          </h3>
+          {this.props.content}
         </div>
       </div>
     );
@@ -44,23 +41,6 @@ class Card extends React.Component<CardInterface, {}> {
 export default Card;
 
 const styles = {
-  colStyle: {
-    backgroundColor: DARK_HIGHLIGHT,
-    maxWidth: 400,
-    minWidth: 400,
-    paddingTop: 20,
-    margin: 15,
-  },
-  colStyleHover: {
-    backgroundColor: HOVER,
-    maxWidth: 400,
-    minWidth: 400,
-    paddingTop: 20,
-    margin: 15,
-  },
-  iconRowStyle: {
-    height: 75,
-  },
   contentRowStyle: {
     color: TEXT_COLOR,
   },
