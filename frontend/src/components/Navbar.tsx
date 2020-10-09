@@ -6,8 +6,15 @@ import NavbarButton from './NavbarButton';
 import {links} from '../links';
 import {MIN_WIDTH, BACKGROUND_COLOR, TEXT_COLOR, BLACK, NAVBAR_HEIGHT} from '../assets/constants';
 
+interface NavbarInterface {
+  isAdmin: Boolean;
+};
+interface NavbarState {
+  toggle: boolean;
+  width: number;
+}
 
-class Navbar extends React.Component {
+class Navbar extends React.Component<NavbarInterface, NavbarState> {
   state = {
     toggle: false,
     width: window.innerWidth - 15,
@@ -62,17 +69,21 @@ class Navbar extends React.Component {
       );
     }
     return (
-      this.routes.map((route, i) => {
-        return (
-          <NavbarButton
-            key={i}
-            path={route.path}
-            nameElement={route.title}
-            width={this.state.width}
-            toggleMenu={this.toggleMenu}
-          />
-        );
-      })
+      this.routes
+        .filter((route) => {
+          return route.path === '/admin' ? this.props.isAdmin : true;
+        })
+        .map((route, i) => {
+          return (
+            <NavbarButton
+              key={i}
+              path={route.path}
+              nameElement={route.title}
+              width={this.state.width}
+              toggleMenu={this.toggleMenu}
+            />
+          );
+        })
     );
   }
 

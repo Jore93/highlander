@@ -12,6 +12,7 @@ import TechStack from './screens/TechStack';
 import Navbar from './components/Navbar';
 import Splash from './screens/Splash';
 import {StoreState} from './store/storeTypes';
+import Admin from './screens/Admin';
 
 interface AppProps {
   isInitialized: boolean
@@ -25,9 +26,12 @@ class App extends React.Component<AppProps, {}> {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar isAdmin={false}/>
 
           <Switch>
+            <Route path="/admin">
+              <Admin />
+            </Route>
             <Route path="/about">
               <About />
             </Route>
@@ -41,7 +45,7 @@ class App extends React.Component<AppProps, {}> {
               <TechStack />
             </Route>
             <Route exact path="/">
-              <Home />
+              <Home isAdmin={false}/>
             </Route>
             <Route path="*">
               <Redirect to="/" />
