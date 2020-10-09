@@ -47,7 +47,7 @@ export class ParagraphController {
     } else {
       return res.status(HttpStatus.BAD_REQUEST).json({
         ok: false,
-        data: 'Need to post either uuid and/or readAll',
+        data: 'Missing parameters',
       });
     }
   }

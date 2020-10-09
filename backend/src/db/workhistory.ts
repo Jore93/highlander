@@ -55,22 +55,21 @@ export const createWorkhistory = async (workObj: WorkhistoryAttributes): Promise
     };
   }
 };
-export const readWorkhistory = async (uuid?: string, readAll = true): Promise<any> => {
+export const readWorkhistory = async (where?: Record<string, string>, readAll = true): Promise<any> => {
+  let workhistories: Workhistory[];
   try {
     if (readAll) {
-      const langs = await Workhistory.findAll();
-      return {
-        ok: true,
-        data: langs.map((lang: any) => {
-        return lang.dataValues;
-      })};
+      workhistories = await Workhistory.findAll();
     } else {
-      const lang: any = await Workhistory.findOne({where: {uuid}});
-      return {
-        ok: true,
-        data: lang.dataValues,
-      };
+      // Filter undefined values
+      Object.keys(where).forEach(key => where[key] === undefined && delete where[key]);
+      workhistories = await Workhistory.findAll({where});
     }
+    return {
+      ok: true,
+      data: workhistories.map((workhistory: any) => {
+      return workhistory.dataValues;
+    })};
   } catch (err) {
     console.error(err);
     return {
