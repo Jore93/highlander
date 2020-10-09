@@ -2,13 +2,13 @@ import {Controller, Post, Body, Res, HttpStatus} from '@nestjs/common';
 import express from 'express';
 import {ApiTags} from '@nestjs/swagger';
 
-import {PositionsService} from './positions.service';
+import {PositionService} from './position.service';
 import {createPositionDto, deletePositionDto, readPositionDto, updatePositionDto} from 'src/dto/positions.dto';
 
 @ApiTags('Position')
-@Controller('positions')
-  export class PositionsController {
-    constructor(private readonly positionService: PositionsService) {};
+@Controller('position')
+  export class PositionController {
+    constructor(private readonly positionService: PositionService) {};
 
   @Post('/create')
   async createPosition(@Body() post: createPositionDto, @Res() res: express.Response): Promise<any> {

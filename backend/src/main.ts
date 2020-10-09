@@ -24,7 +24,7 @@ async function bootstrap() {
   if (process.env.STATE !== 'PROD') {
     createSwaggerDoc(app);
   }
-
+  app.enableCors();
   await app.listen(5000);
 }
 bootstrap();

@@ -69,7 +69,11 @@ export const readUser = async (where?: Record<string, string | boolean>, readAll
     }
     return {
       ok: true,
-      data: users.map((user: any) => {return user.dataValues}),
+      data: users.map((user: any) => {
+        const userObj = user.dataValues;
+        delete userObj['password'];
+        return userObj;
+      }),
     };
   } catch (err) {
     console.error(err);

@@ -1,10 +1,9 @@
 import axios from 'axios';
 import {Dispatch} from 'redux';
 
-import dotenv from 'dotenv';
-import {Education, Language, Position, Workhistory} from '../store/cvTypes';
-import {SET_EDUCATIONS, SET_LANGUAGES, SET_POSITIONS, SET_WORKHISTORY, SET_INITIALIZED} from './actionTypes';
-dotenv.config();
+import {Education, Language, Position, Workhistory} from '../store/apiTypes';
+import {SET_EDUCATIONS, SET_LANGUAGES, SET_POSITIONS, SET_WORKHISTORIES, SET_INITIALIZED} from './actionTypes';
+
 
 export const setInitialisation = (status: boolean) => {
   return {type: SET_INITIALIZED, payload: status}
@@ -21,8 +20,9 @@ export const fetchEducations = () => {
         'api-key': process.env.REACT_APP_API_KEY,
       }
     }
-    const res = await axios.get(`${process.env.REACT_APP_API}/education`, params)
-    if (res.data.data) {
+    const res = await axios.get(`${process.env.REACT_APP_API}/education/read`, params);
+    console.log(res);
+    if (res?.data?.data) {
       return dispatch(setEducations(res.data.data));
     }
   }
@@ -65,7 +65,7 @@ export const fetchPositions = () => {
 }
 
 export const setWorkhistory = (data: Array<Workhistory>) => {
-  return {type: SET_WORKHISTORY, payload: data};
+  return {type: SET_WORKHISTORIES, payload: data};
 }
 
 export const fetchWorkhistory = () => {

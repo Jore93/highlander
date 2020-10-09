@@ -1,5 +1,5 @@
 import {
-  SET_LANGUAGES, SET_EDUCATIONS, SET_POSITIONS, SET_WORKHISTORY, SET_INITIALIZED
+  SET_LANGUAGES, SET_EDUCATIONS, SET_POSITIONS, SET_WORKHISTORIES, SET_INITIALIZED
 } from '../actions/actionTypes';
 import {cvReducer, cvActionTypes} from '../store/cvTypes';
 
@@ -21,7 +21,7 @@ export default (state = initialState, action: cvActionTypes) => {
       return {...state, languages: action.payload}
     case SET_POSITIONS:
       return {...state, positions: action.payload}
-    case SET_WORKHISTORY:
+    case SET_WORKHISTORIES:
       return {...state, workhistory: action.payload}
     default:
       return state;

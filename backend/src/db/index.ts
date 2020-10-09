@@ -29,7 +29,7 @@ export default class DB {
   }
 
   init = async (): Promise<any> => {
-    await sequelize.sync({alter: true});
+    await sequelize.sync();
   };
 }
 

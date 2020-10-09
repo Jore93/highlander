@@ -4,7 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 import {createPosition, deletePosition, readPosition, updatePosition} from 'src/db/positions';
 
 @Injectable()
-export class PositionsService {
+export class PositionService {
   create = async (position: string, duration: string, organisation: string): Promise<any> => {
     const uuid = uuidv4();
     const positionObj = {uuid, position, duration, organisation}

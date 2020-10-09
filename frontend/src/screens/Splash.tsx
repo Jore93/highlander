@@ -2,14 +2,14 @@ import React from 'react'
 import {connect} from 'react-redux';
 
 import {StoreState} from '../store/storeTypes';
-import {fetchLanguages, fetchEducations, fetchPositions, fetchWorkhistory, setInitialisation} from '../actions/cvActions';
+import {readLanguages, readEducations, readPositions, readWorkhistories, setInitialisation} from '../actions/apiActions';
 import LoadingView from '../components/LoadingView';
 
 interface SplashInterface {
-  fetchEducations: Function
-  fetchLanguages: Function
-  fetchPositions: Function
-  fetchWorkhistory: Function
+  readEducations: Function
+  readLanguages: Function
+  readPositions: Function
+  readWorkhistories: Function
   setInitialisation: Function
 }
 
@@ -20,10 +20,10 @@ class Splash extends React.Component<SplashInterface, {}> {
   }
 
   initializeApp = async () => {
-    await this.props.fetchEducations();
-    await this.props.fetchLanguages();
-    await this.props.fetchPositions();
-    await this.props.fetchWorkhistory();
+    await this.props.readEducations();
+    await this.props.readLanguages();
+    await this.props.readPositions();
+    await this.props.readWorkhistories();
     this.setState({loading: false});
   }
 
@@ -51,10 +51,10 @@ const mapStateToProps = (state: StoreState)=> {
 export default connect(
   mapStateToProps,
   {
-    fetchEducations,
-    fetchLanguages,
-    fetchPositions,
-    fetchWorkhistory,
+    readEducations,
+    readLanguages,
+    readPositions,
+    readWorkhistories,
     setInitialisation,
   },
 )(Splash)
