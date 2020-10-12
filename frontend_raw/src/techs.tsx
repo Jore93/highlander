@@ -22,12 +22,17 @@ import {
   DiMysql,
 } from 'react-icons/di';
 import {GiCircuitry} from 'react-icons/gi';
+import {TEXT_COLOR} from './assets/constants';
 
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
   headerStyle: {
     textAlign: 'center',
     wordWrap: 'break-word',
+    color: TEXT_COLOR,
+    fontSize: 36,
+    fontWeight: 'lighter',
+    fontFamily: 'saucer',
   }
 };
 

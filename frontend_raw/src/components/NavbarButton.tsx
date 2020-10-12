@@ -20,13 +20,13 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
     if (width > MIN_WIDTH) {
       return (
         <div className={`${name}NavBarButton`} style={styles.navButtonStyle}>
-          <Link to={path}>{name}</Link>
+          <Link style={styles.navLinkStyle} to={path}>{name}</Link>
         </div>
       );
     }
     return (
       <Row justify="center" align="center" className={`${name}NavBarButton`} style={styles.rowStyle}>
-        <Link to={path} onClick={() => this.props.toggleMenu()}>
+        <Link style={styles.navLinkStyle} to={path} onClick={() => this.props.toggleMenu()}>
           {name}
         </Link>
       </Row>
@@ -36,10 +36,19 @@ class NavbarButton extends React.Component<NavbarButtonProps, {}> {
 
 export default NavbarButton;
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
   navButtonStyle: {
-    underline: 'none',
+    //underline: 'none',
     margin: 15,
+  },
+  navLinkStyle: {
+    display: 'flex',
+    textDecoration: 'none',
+    color: TEXT_COLOR,
+    fontSize: 20,
+    fontFamily: 'saucer',
+    fontWeight: 'lighter',
+    justifyContent: 'center',
   },
   rowStyle: {
     height: 40,

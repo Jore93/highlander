@@ -68,11 +68,22 @@ margin:auto;
 class LoadingView extends React.Component {
   render() {
     return (
-      <div className='Logo-container'>
+      <div style={styles.logoContainerStyle}>
         <StyledLogo />
       </div>
     );
   }
 }
 
+const styles: Record<string, React.CSSProperties> = {
+  logoContainerStyle: {
+    textAlign: 'center',
+    fontFamily: 'typewriter',
+    height: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: BACKGROUND_COLOR,
+  },
+}
 export default LoadingView;

@@ -1,0 +1,44 @@
+.card:hover {
+  box-shadow: 0px 0px 15px #61dafb;
+  cursor: pointer;
+}
+
+.grow-modal {
+  animation: growModal 0.5s ease;
+}
+
+.shrink-modal {
+  animation: shrinkModal 0.5s ease;
+}
+
+@keyframes growModal {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes shrinkModal {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+@font-face {
+  font-family: typewriter;
+  src: local('typewriter'), url(./assets/fonts/typewriter.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: saucer;
+  src: local('saucer'), url(./assets/fonts/SaucerBB.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

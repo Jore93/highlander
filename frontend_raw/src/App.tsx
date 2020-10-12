@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import Splash from './screens/Splash';
 import {StoreState} from './store/storeTypes';
 import Admin from './screens/Admin';
+import {BACKGROUND_COLOR} from './assets/constants';
 
 interface AppProps {
   isInitialized: boolean
@@ -24,7 +25,7 @@ class App extends React.Component<AppProps, {}> {
       return <Splash />
     }
     return (
-      <div className="App">
+      <div style={styles.appDivStyle}>
         <Router>
           <Navbar isAdmin={false}/>
 
@@ -55,6 +56,13 @@ class App extends React.Component<AppProps, {}> {
       </div>
     );
   }
+}
+
+const styles: Record<string, React.CSSProperties> = {
+  appDivStyle: {
+    backgroundColor: BACKGROUND_COLOR,
+    minHeight: '100vh',
+  },
 }
 
 const mapStateToProps = (state: StoreState) => {

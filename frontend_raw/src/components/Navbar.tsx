@@ -30,7 +30,7 @@ class Navbar extends React.Component<NavbarInterface, NavbarState> {
   routes = [
     {
       path: "/",
-      title: <h2 style={{textAlign: 'center', wordWrap: 'break-word'}}>Home</h2>,
+      title: <h2 style={styles.headerTextStyle}>Home</h2>,
       icon: <FaHome size={'100%'} className='icon' />,
     },
   ].concat(links);
@@ -48,7 +48,7 @@ class Navbar extends React.Component<NavbarInterface, NavbarState> {
       return (
         <Col sm={12} md={12} lg={12}> {/* Column has maximum height on mobile for some reason*/}
           <Row justify="center" align="center" className='HamburgerMenuButton' style={styles.hamburgerColumnStyle}>
-            <button className='HamburgerButton' onClick={this.toggleMenu}>
+            <button style={styles.hamburgerButtonStyle} onClick={this.toggleMenu}>
               <FaBars style={styles.hamburgerStyle} size={25}/>
             </button>
           </Row>
@@ -89,7 +89,7 @@ class Navbar extends React.Component<NavbarInterface, NavbarState> {
 
   render() {
     return (
-      <div className="Navbar">
+      <div style={styles.navbarStyle}>
         <Container fluid style={styles.containerStyle}>
           <Row justify={this.state.width < MIN_WIDTH ? "center" : "end"} align="center" style={styles.rowStyle}>
             {this.renderMenuElements()}
@@ -102,7 +102,12 @@ class Navbar extends React.Component<NavbarInterface, NavbarState> {
 
 export default Navbar;
 
-const styles = {
+const styles: Record<string, React.CSSProperties> = {
+  navbarStyle: {
+    top: 0,
+    position: 'sticky',
+    zIndex: 10,
+  },
   containerStyle: {
     backgroundColor: BACKGROUND_COLOR,
     justifyContent: 'center',
@@ -115,7 +120,19 @@ const styles = {
     backgroundColor: 'invisible',
     height: NAVBAR_HEIGHT,
   },
+  hamburgerButtonStyle: {
+    backgroundColor: BLACK,
+    border: 'none',
+  },
   hamburgerStyle: {
     color: TEXT_COLOR,
   },
+  headerTextStyle: {
+    textAlign: 'center',
+    wordWrap: 'break-word',
+    color: TEXT_COLOR,
+    fontSize: 36,
+    fontWeight: 'lighter',
+    fontFamily: 'saucer',
+  }
 }
